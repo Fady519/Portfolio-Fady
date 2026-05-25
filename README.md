@@ -1,107 +1,161 @@
-# Fady Kaiser Gerges - Premium Developer Portfolio
+<div align="center">
 
-A world-class, responsive, and performance-optimized Developer Portfolio website engineered for Fady Kaiser Gerges. Designed with modern visual principles—glowing dark mode, glassmorphism, responsive visual mockups, and smooth Framer Motion page animations.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F172A,50:7C3AED,100:EC4899&height=220&section=header&text=Portfolio%20%E2%80%94%20Fady%20Kaiser&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=Next.js%2019%20%7C%20TypeScript%20%7C%20Tailwind%20CSS%20%7C%20Framer%20Motion&descSize=16&descAlignY=58&descColor=ffffff" width="100%"/>
 
-🌐 **Stack:** Next.js (App Router), Tailwind CSS, Framer Motion, TypeScript, Lucide Icons, React Hook Form.
+</div>
 
----
+<div align="center">
 
-## Key Features
+[![Live Demo](https://img.shields.io/badge/🌐%20Live%20Demo-Visit%20Now-7C3AED?style=for-the-badge)](https://fady519.github.io/Portfolio-Fady/)
+[![GitHub](https://img.shields.io/badge/GitHub-Source%20Code-181717?style=for-the-badge&logo=github)](https://github.com/Fady519/Portfolio-Fady)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Fady%20Kaiser-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fady-kaiser/)
 
-- 🌟 **Premium Dark UI/UX:** Clean, elegant dark aesthetic featuring glowing gradients, backdrop blur panels (`glassmorphism`), responsive grid overlays, and curated HSL theme structures.
-- 📱 **Fully Responsive Layout:** Mobile-first architecture, carefully configured to render fluidly across all mobile, tablet, and desktop viewports.
-- ⚡ **Asynchronous Typed Roles:** Typewriter presentation outlining competencies (.NET Core Backend, Frontend SPA, Full-Stack Developer).
-- 📂 **Premium Projects Showcase:** Modular showcase containing dynamic category tabs and detailed custom popups illustrating architectures, challenges faced, and specific solutions applied.
-- ⏳ **Interactive Journey timeline:** Elegant work history, education paths, and professional route certifications presented in responsive vertical nodes.
-- 💬 **Dynamic Contact & Messaging:** Integrated form handled by `react-hook-form` presenting validation feedback alongside direct WhatsApp shortcuts and active social link paths.
-- 📈 **Performance & SEO Blueprint:** Full metadata setups, pre-rendered static generation layout routines, and dynamic asset structures to guarantee fast paint scores.
+</div>
 
 ---
 
-## Folder Structure
+<div align="center">
 
-```text
-src/
-├── app/
-│   ├── globals.css         # Custom background glowing grid and styling variables
-│   ├── layout.tsx          # SEO tags configuration and root responsive wrapper
-│   └── page.tsx            # Main assembled landing page and scroll indicators
-├── components/
-│   ├── Navbar.tsx          # Glassmorphic header nav supporting smooth scroll
-│   ├── Hero.tsx            # Multi-CV download selections and code card simulator
-│   ├── About.tsx           # Visual statistics, bio summaries and training items
-│   ├── Skills.tsx          # Interactive categories and active progress tracks
-│   ├── Experience.tsx      # Vertical timeline highlighting jobs and academies
-│   ├── Projects.tsx        # Grid cards listing and extensive architecture details modal
-│   ├── Services.tsx        # Solid patterns lists detailing developer offerings
-│   ├── Contact.tsx         # Validated message forms and active messaging shortcuts
-│   └── Footer.tsx          # Copyright information and secondary return navigation
-├── lib/
-│   └── data.ts             # Centralized portfolio dataset extracted from professional CVs
+## ✦ Built to impress. Designed to convert.
+
+A modern, performant personal portfolio — built with **Next.js 19** and **TypeScript**.  
+Smooth animations. Dark mode. Contact form. Every section crafted with intention.
+
+</div>
+
+---
+
+## 🖥️ Live Preview
+
+<div align="center">
+
+> 🔗 **[fady519.github.io/Portfolio-Fady](https://fady519.github.io/Portfolio-Fady/)**
+
+> _Add a screenshot or screen recording GIF here_
+
+</div>
+
+---
+
+## ✨ Features
+
+| Feature | Description |
+|---|---|
+| ⚡ **Next.js 19** | Latest App Router with SSG for blazing-fast static output |
+| 🔷 **TypeScript** | Fully typed codebase — zero runtime surprises |
+| 🎞️ **Framer Motion** | Smooth page transitions & scroll-triggered animations |
+| 🎨 **Tailwind CSS v4** | Utility-first styling with zero unused CSS in production |
+| 🌙 **Dark Mode** | Seamless light/dark theme switching |
+| 💼 **Projects Section** | Showcasing real work with live links & tech stack |
+| 👤 **About Me** | Personal introduction and background |
+| 🛠️ **Skills Section** | Visual display of technologies and tools |
+| 📬 **Contact Form** | Validated form powered by **React Hook Form** |
+| 🎭 **Animations** | Micro-interactions and entrance animations via Framer Motion |
+| 🚀 **GitHub Pages Deploy** | Auto-deploy to GitHub Pages via `gh-pages` |
+
+---
+
+## 🛠️ Tech Stack
+
+<div align="center">
+
+![Next.js](https://img.shields.io/badge/Next.js%2019-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React%2019-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS%20v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer%20Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white)
+![Lucide](https://img.shields.io/badge/Lucide%20Icons-F56565?style=for-the-badge)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-181717?style=for-the-badge&logo=github&logoColor=white)
+
+</div>
+
+---
+
+## 📁 Project Structure
+
+```
+Portfolio-Fady/
+│
+├── public/                    # Static assets (images, icons, CV)
+├── src/
+│   ├── app/                   # Next.js App Router
+│   │   ├── layout.tsx         # Root layout + metadata
+│   │   ├── page.tsx           # Home page
+│   │   └── globals.css        # Global styles + Tailwind
+│   │
+│   ├── components/            # Reusable UI components
+│   │   ├── Navbar.tsx
+│   │   ├── Hero.tsx
+│   │   ├── About.tsx
+│   │   ├── Projects.tsx
+│   │   ├── Skills.tsx
+│   │   ├── Contact.tsx
+│   │   └── Footer.tsx
+│   │
+│   └── types/                 # TypeScript type definitions
+│
+├── next.config.ts             # Next.js config (static export)
+├── tailwind.config.ts
+├── tsconfig.json
+└── package.json
 ```
 
 ---
 
-## Local Development
+## ⚙️ Getting Started
 
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/Fady519/Portfolio.git
-   cd Portfolio
-   ```
+### Prerequisites
 
-2. **Install Dependencies:**
-   Ensure you use npm to respect the configuration settings:
-   ```bash
-   npm install
-   ```
+- Node.js `v18+`
+- npm or yarn
 
-3. **Run Development Server:**
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000) inside your web browser.
+### Installation
 
-4. **Production Build Compilation:**
-   Verify code builds correctly without issues:
-   ```bash
-   npm run build
-   ```
+```bash
+# 1. Clone the repo
+git clone https://github.com/Fady519/Portfolio-Fady.git
+cd Portfolio-Fady
 
----
+# 2. Install dependencies
+npm install
 
-## Vercel Deployment Instructions
+# 3. Start dev server
+npm run dev
+```
 
-Deploying this Next.js app to Vercel is extremely straightforward:
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-1. **Commit and Push changes to GitHub:**
-   Ensure all local changes are fully committed:
-   ```bash
-   git add .
-   git commit -m "feat: complete premium developer portfolio website"
-   git push origin main
-   ```
+### Build & Deploy
 
-2. **Deploy via Vercel Dashboard:**
-   - Log into your [Vercel Account](https://vercel.com).
-   - Click the **"Add New"** dropdown on your dashboard and select **"Project"**.
-   - Import your portfolio repository (e.g., `Fady519/Portfolio` or similar).
-   - In the **Configure Project** window:
-     - **Framework Preset:** Select `Next.js`.
-     - **Root Directory:** `./` (default).
-     - **Build and Output Settings:** Leave default settings (`npm run build` will execute automatically).
-     - **Environment Variables:** No custom environment variables are strictly required to launch.
-   - Click the **"Deploy"** button.
+```bash
+# Build static output
+npm run build
 
-3. **Domain & SSL configuration:**
-   Vercel will build the project statically and assign a secure SSL `https://...vercel.app` domain instantly.
+# Deploy to GitHub Pages
+npm run deploy
+```
+
+> Make sure `next.config.ts` has `output: 'export'` for static GitHub Pages deployment.
 
 ---
 
-## Key Recommendations & Architectural Enhancements
+## 📬 Contact
 
-For your secondary GitHub repositories (e.g., Cinema-Fady, GymManagementSystem), here are highly valued architectural updates you can apply:
+<div align="center">
 
-- **E-Commerce RESTful API:** Ensure you add comprehensive unit tests (using xUnit and Moq) to validate the custom Specification evaluation layers. This makes the backend extremely attractive to senior technical recruiters.
-- **Gym Management System:** Consider migrating the front-end Razor MVC views into a modern React/Next.js single page application consuming separate ASP.NET Web API controllers. This represents the absolute industry standard.
-- **FreshCart & Cinema+:** Integrate automatic error boundaries to gracefully intercept TMDB/catalog network exceptions and fallback to caching layers when offline.
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Fady%20Kaiser-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fady-kaiser/)
+[![GitHub](https://img.shields.io/badge/GitHub-Fady519-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Fady519)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live%20Now-7C3AED?style=for-the-badge)](https://fady519.github.io/Portfolio-Fady/)
+
+</div>
+
+---
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F172A,50:7C3AED,100:EC4899&height=100&section=footer" width="100%"/>
+
+**⭐ If you liked this portfolio, drop a star — it means a lot!**
+
+</div>
