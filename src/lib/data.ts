@@ -1,3 +1,5 @@
+
+
 export interface Project {
   id: string;
   title: string;
@@ -110,6 +112,26 @@ export const SKILLS = {
 
 export const PROJECTS: Project[] = [
   {
+    id: 'advanced-admin-dashboard',
+    title: 'Advanced Admin Dashboard',
+    category: 'Frontend',
+    description: 'An enterprise-grade commercial dashboard featuring secure client-side routes, interactive scheduling, and flawless visual performance without hydration flickering.',
+    longDescription: 'A premium, commercial-grade Administrative Dashboard application built with React, Next.js, and TypeScript. Strategically optimized for enterprise workflows, it addresses core architecture challenges like eliminating hydration-induced visual flickering and securing client-side routes. Features high-performance interactive calendars for resource planning, responsive side-navigation bars, and dense multi-series analytical charting tools configured for high-frequency data presentation.',
+    techStack: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Recharts', 'FullCalendar', 'Lucide Icons'],
+    features: [
+      'Advanced client-side route guarding preventing unauthorized view access and preserving session contexts.',
+      'Flawless visual performance architecture eliminating Next.js hydration layout shifts and theme flickering.',
+      'Highly dynamic, full-featured FullCalendar scheduling workflow with persistent CRUD operations.',
+      'Interactive multi-series charts and analytical tracking views powered by high-performance Recharts wrappers.',
+      'Custom stateful layout wrappers supporting collapsible sidebar states and theme-aware responsiveness.'
+    ],
+    architecture: 'Modular Frontend Component Pattern wrapping highly reactive Next.js layout trees. Features isolated context layers for application states, and fully customized theme variables injecting custom scales directly into Tailwind engine.',
+    challenges: 'Preventing client-side layout layout flickering during Next.js hydration phase and isolating complex calendar rendering processes from the core application pipeline.',
+    solutions: 'Implemented an optimized client-ready lifecycle synchronization mechanism using React hooks, ensuring dense visual dashboards render completely stable from the first paint.',
+    githubUrl: 'https://github.com/Fady519/Dashboard',
+    liveUrl: 'https://dashboard-flax-two-20.vercel.app/login' // 🔗 تم تحديث الرابط هنا بنجاح
+  },
+  {
     id: 'e-commerce-api',
     title: 'E-Commerce RESTful API',
     category: 'Backend',
@@ -134,7 +156,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'gym-management-system',
     title: 'Gym Management System',
-    category: 'Full-Stack',
+    category: 'Backend', // 🏋️ تم النقل لقسم الباك اند بناء على طلبك
     description: 'Full-featured enterprise gym management web portal supporting RBAC, atomic booking transactions, and interactive administration dashboards.',
     longDescription: 'A fully featured administration and member system built using ASP.NET Core MVC. Employs 3-Layer Architecture (DAL/BLL/UI) to handle gym memberships, subscriptions, booking classes, and session scheduling. The project leverages ASP.NET Identity for security across multiple distinct roles (Member, Admin, Super Admin) and features a detailed analytics service to surface crucial business metrics.',
     techStack: ['C#', 'ASP.NET Core MVC', 'Entity Framework Core', 'SQL Server', 'AutoMapper', 'LINQ', 'ASP.NET Identity', 'Bootstrap'],
@@ -280,7 +302,7 @@ export const SERVICES: Service[] = [
 
 export const STATS = [
   { label: 'Completed Training Hours', value: '150+' },
-  { label: 'Enterprise Projects Completed', value: '4+' },
+  { label: 'Enterprise Projects Completed', value: '5+' },
   { label: 'Agile Sprints Managed', value: '4' },
   { label: 'Technologies Mastered', value: '15+' }
 ];

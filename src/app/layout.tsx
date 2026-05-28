@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Outfit } from "next/font/google";
 import "./globals.css";
 import { PERSONAL_INFO } from "@/lib/data";
@@ -6,33 +6,35 @@ import { PERSONAL_INFO } from "@/lib/data";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap", 
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
 });
+
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: `${PERSONAL_INFO.name} | Premium Developer Portfolio`,
   description: PERSONAL_INFO.bio,
   keywords: [
-    "Fady Kaiser",
-    ".NET Developer",
-    "ASP.NET Core Web API",
-    "React.js Developer",
-    "Next.js Developer",
-    "Full-Stack Developer",
-    "Egypt",
-    "Software Engineer",
-    "Clean Architecture",
-    "Onion Architecture"
+    "Fady Kaiser", ".NET Developer", "ASP.NET Core Web API",
+    "React.js Developer", "Next.js Developer", "Full-Stack Developer",
+    "Egypt", "Software Engineer", "Clean Architecture", "Onion Architecture"
   ],
   authors: [{ name: PERSONAL_INFO.name }],
   openGraph: {

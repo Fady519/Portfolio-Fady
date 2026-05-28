@@ -1,3 +1,5 @@
+
+
 'use client';
 
 import { useState } from 'react';
@@ -13,12 +15,18 @@ export default function Projects() {
 
   const filters: FilterType[] = ['All', 'Full-Stack', 'Backend', 'Frontend'];
 
+  // 🛠️ الفلترة الذكية: لو المشروع هو الجيم، هيظهر في الـ Backend والـ Full-Stack والـ All
   const filteredProjects = activeFilter === 'All'
     ? PROJECTS
-    : PROJECTS.filter(p => p.category === activeFilter);
+    : PROJECTS.filter(p => {
+        if (p.id === 'gym-management-system') {
+          return activeFilter === 'Backend' || activeFilter === 'Full-Stack';
+        }
+        return p.category === activeFilter;
+      });
 
-  // Gradient helper for mock visual cards
   const projectGradients: Record<string, string> = {
+    'advanced-admin-dashboard': 'from-orange-600/20 via-amber-600/20 to-yellow-600/20 border-amber-500/20',
     'e-commerce-api': 'from-blue-600/20 via-indigo-600/20 to-purple-600/20 border-blue-500/20',
     'gym-management-system': 'from-emerald-600/20 via-teal-600/20 to-cyan-600/20 border-emerald-500/20',
     'freshcart-ecommerce': 'from-cyan-600/20 via-blue-600/20 to-indigo-600/20 border-cyan-500/20',
@@ -26,6 +34,7 @@ export default function Projects() {
   };
 
   const projectIcons: Record<string, string> = {
+    'advanced-admin-dashboard': '📊',
     'e-commerce-api': '🛒',
     'gym-management-system': '🏋️',
     'freshcart-ecommerce': '🥗',
@@ -71,7 +80,7 @@ export default function Projects() {
         {/* Projects Cards List Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
@@ -82,88 +91,80 @@ export default function Projects() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ type: 'spring', stiffness: 100, damping: 15 }}
-                className="glass-panel rounded-2xl border border-white/10 overflow-hidden flex flex-col h-[520px] hover:border-primary/30 transition-all duration-300 group shadow-lg"
+                className="glass-panel rounded-2xl border border-white/10 overflow-hidden flex flex-col h-[480px] hover:border-primary/30 transition-all duration-300 group shadow-lg"
               >
                 {/* Visual mockup banner frame */}
-                <div className={`h-48 shrink-0 bg-gradient-to-tr ${projectGradients[project.id]} border-b border-white/5 relative flex items-center justify-center p-6 overflow-hidden`}>
-                  {/* Decorative glowing grid background inside image mock */}
+                <div className={`h-40 shrink-0 bg-gradient-to-tr ${projectGradients[project.id]} border-b border-white/5 relative flex items-center justify-center p-4 overflow-hidden`}>
                   <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+                  <div className="absolute w-20 h-20 rounded-full bg-white/5 blur-xl group-hover:scale-125 transition-transform duration-500" />
                   
-                  {/* Glowing core sphere */}
-                  <div className="absolute w-24 h-24 rounded-full bg-white/5 blur-xl group-hover:scale-125 transition-transform duration-500" />
-                  
-                  {/* Floating abstract code lines */}
-                  <div className="absolute top-4 left-4 font-mono text-[9px] text-white/20 select-none hidden sm:block">
-                    {`// Namespace Core.Entities\npublic class ProjectEntity : BaseEntity {}`}
-                  </div>
-
-                  <span className="text-6xl select-none filter drop-shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                  <span className="text-5xl select-none filter drop-shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                     {projectIcons[project.id]}
                   </span>
 
-                  {/* Category label badge */}
-                  <span className="absolute top-4 right-4 bg-white/5 border border-white/10 backdrop-blur px-3 py-1 rounded-full text-xs font-mono font-medium text-gray-300">
-                    {project.category}
+                  {/* الـ Badge هنا هيعرض ديناميكياً الكاتيجوري المناسبة بناءً على الفلتر النشط لمشروع الجيم */}
+                  <span className="absolute top-3 right-3 bg-white/5 border border-white/10 backdrop-blur px-2.5 py-0.5 rounded-full text-[10px] font-mono font-medium text-gray-300">
+                    {project.id === 'gym-management-system' && activeFilter !== 'All' ? activeFilter : project.category}
                   </span>
                 </div>
 
                 {/* Card Content body */}
-                <div className="p-6 sm:p-8 flex flex-col justify-between grow">
-                  <div className="flex flex-col gap-3">
-                    <h3 className="font-outfit font-extrabold text-2xl text-white group-hover:text-primary transition-colors leading-snug">
+                <div className="p-5 flex flex-col justify-between grow">
+                  <div className="flex flex-col gap-2">
+                    <h3 className="font-outfit font-extrabold text-xl text-white group-hover:text-primary transition-colors leading-snug line-clamp-1">
                       {project.title}
                     </h3>
                     
-                    <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
+                    <p className="text-gray-400 text-xs sm:text-sm leading-relaxed line-clamp-3">
                       {project.description}
                     </p>
                   </div>
 
                   {/* Stack tags list */}
-                  <div className="flex flex-wrap gap-1.5 mt-4">
-                    {project.techStack.slice(0, 4).map((tech) => (
+                  <div className="flex flex-wrap gap-1 mt-2">
+                    {project.techStack.slice(0, 3).map((tech) => (
                       <span
                         key={tech}
-                        className="bg-white/5 border border-white/5 text-gray-300 text-[10px] font-semibold px-2 py-0.5 rounded"
+                        className="bg-white/5 border border-white/5 text-gray-300 text-[9px] font-semibold px-2 py-0.5 rounded"
                       >
                         {tech}
                       </span>
                     ))}
-                    {project.techStack.length > 4 && (
-                      <span className="text-gray-500 text-[10px] font-semibold px-2 py-0.5 bg-white/1 rounded">
-                        +{project.techStack.length - 4} more
+                    {project.techStack.length > 3 && (
+                      <span className="text-gray-500 text-[9px] font-semibold px-1.5 py-0.5 bg-white/5 rounded">
+                        +{project.techStack.length - 3} more
                       </span>
                     )}
                   </div>
 
                   {/* Actions buttons */}
-                  <div className="flex items-center justify-between border-t border-white/5 pt-5 mt-5">
+                  <div className="flex items-center justify-between border-t border-white/5 pt-4 mt-4">
                     <button
                       onClick={() => setSelectedProject(project)}
-                      className="flex items-center gap-1 text-xs sm:text-sm font-semibold font-outfit text-primary hover:text-secondary hover:underline transition-colors shrink-0 cursor-pointer"
+                      className="flex items-center gap-0.5 text-xs font-semibold font-outfit text-primary hover:text-secondary hover:underline transition-colors shrink-0 cursor-pointer"
                     >
                       Deep-Dive Architecture
-                      <ChevronRight className="w-4 h-4" />
+                      <ChevronRight className="w-3.5 h-3.5" />
                     </button>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white text-gray-300 transition-colors"
+                        className="p-1.5 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white text-gray-300 transition-colors"
                         title="GitHub Repository"
                       >
-                        <Github className="w-4 h-4" />
+                        <Github className="w-3.5 h-3.5" />
                       </a>
                       {project.liveUrl && (
                         <a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-1 px-3.5 py-2 rounded-lg bg-gradient-to-r from-primary to-secondary hover:shadow-md hover:shadow-primary/20 text-white text-xs font-semibold font-outfit transition-all duration-300"
+                          className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-gradient-to-r from-primary to-secondary hover:shadow-md hover:shadow-primary/20 text-white text-[11px] font-semibold font-outfit transition-all duration-300"
                         >
-                          <ExternalLink className="w-3.5 h-3.5" />
+                          <ExternalLink className="w-3 h-3" />
                           <span>Live Demo</span>
                         </a>
                       )}
@@ -179,7 +180,6 @@ export default function Projects() {
         <AnimatePresence>
           {selectedProject && (
             <>
-              {/* Dark overlay backdrop */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.6 }}
@@ -188,7 +188,6 @@ export default function Projects() {
                 className="fixed inset-0 bg-black z-50 backdrop-blur-sm"
               />
 
-              {/* Modal Container */}
               <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9, y: 30 }}
@@ -204,7 +203,7 @@ export default function Projects() {
                         {selectedProject.title}
                       </h3>
                       <span className="inline-block mt-1 px-2.5 py-0.5 rounded bg-primary/10 border border-primary/20 text-[10px] font-semibold text-primary font-mono uppercase tracking-wider">
-                        {selectedProject.category} System
+                        {selectedProject.id === 'gym-management-system' ? 'Full-Stack / Backend' : `${selectedProject.category}`} System
                       </span>
                     </div>
                     <button
@@ -218,7 +217,6 @@ export default function Projects() {
                   {/* Scrollable details content body */}
                   <div className="p-6 sm:p-8 overflow-y-auto flex flex-col gap-8">
                     
-                    {/* General Summary */}
                     <div>
                       <h4 className="font-outfit font-bold text-white text-lg mb-3 flex items-center gap-2">
                         <Cpu className="w-5 h-5 text-secondary" />
@@ -229,8 +227,7 @@ export default function Projects() {
                       </p>
                     </div>
 
-                    {/* Architecture specifications */}
-                    <div className="p-5 rounded-2xl bg-white/2 border border-white/5">
+                    <div className="p-5 rounded-2xl bg-white/5 border border-white/5">
                       <h4 className="font-outfit font-bold text-white text-base mb-2.5 flex items-center gap-2">
                         <ShieldCheck className="w-4.5 h-4.5 text-primary" />
                         Architecture & Structural Design
@@ -240,7 +237,6 @@ export default function Projects() {
                       </p>
                     </div>
 
-                    {/* Challenges & Solutions */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div className="p-5 rounded-2xl bg-[#ef4444]/5 border border-[#ef4444]/10">
                         <h5 className="font-outfit font-bold text-[#ef4444] text-sm mb-2 flex items-center gap-2">
@@ -263,7 +259,6 @@ export default function Projects() {
                       </div>
                     </div>
 
-                    {/* Key Features Bullet List */}
                     <div>
                       <h4 className="font-outfit font-bold text-white text-base mb-3.5">
                         Key Features & Capabilities
@@ -278,7 +273,6 @@ export default function Projects() {
                       </ul>
                     </div>
 
-                    {/* Detailed Full Stack list */}
                     <div>
                       <h4 className="font-outfit font-bold text-white text-base mb-3">
                         Technology Blueprint
@@ -316,7 +310,7 @@ export default function Projects() {
                         className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-outfit text-sm font-semibold hover:shadow-lg transition-shadow"
                       >
                         <ExternalLink className="w-4 h-4" />
-                        <span>Launch Demo</span>
+                        <span>Live Demo</span>
                       </a>
                     )}
                   </div>

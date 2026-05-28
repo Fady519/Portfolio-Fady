@@ -1,3 +1,6 @@
+
+
+
 'use client';
 
 import { useState } from 'react';
@@ -28,11 +31,33 @@ export default function Contact() {
     setIsSubmitting(true);
     setSubmitStatus(null);
     
-    // Simulate real API submission
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setSubmitStatus('success');
-      reset();
+     
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+         
+          access_key: 'b564e6f7-585e-4876-9f0c-f8142b61555d', 
+          name: data.name,
+          email: data.email,
+          subject: `[Portfolio Inquiry] ${data.subject}`,
+          message: data.message,
+          from_name: `${PERSONAL_INFO.name} Portfolio`
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        reset(); 
+      } else {
+        setSubmitStatus('error');
+      }
     } catch (e) {
       setSubmitStatus('error');
     } finally {
