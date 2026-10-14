@@ -1,5 +1,3 @@
-
-
 export interface Project {
   id: string;
   title: string;
@@ -39,6 +37,8 @@ export interface Certification {
   name: string;
   issuer: string;
   year: string;
+  credentialId?: string;
+  image?: string;
 }
 
 export interface Service {
@@ -50,7 +50,7 @@ export interface Service {
 
 export const PERSONAL_INFO = {
   name: 'Fady Kaiser Gerges',
-  title: 'Full-Stack / .NET Backend Developer',
+  title: 'Full-Stack / .NET Developer',
   email: 'fadykaiser2004@gmail.com',
   phone: '+20 120 157 5765',
   location: 'Cairo, Egypt',
@@ -61,59 +61,112 @@ export const PERSONAL_INFO = {
     frontend: 'https://drive.google.com/file/d/12T6kkrsDSla3sYswNjE24xQW8SJwJDwj/view?usp=sharing'
   },
   whatsapp: 'https://wa.me/201201575765',
-  bio: 'Junior Full-Stack & .NET Backend Developer with a solid Computer Science foundation and hands-on experience building production-grade server-side systems and highly interactive responsive interfaces. Specialized in ASP.NET Core, EF Core, Clean Architecture, and modern React/Next.js SPA development.',
+  bio: 'Full-Stack Software Engineer with a solid Computer Science foundation and hands-on experience architecting production-grade server-side systems and highly interactive responsive interfaces. Specialized in ASP.NET Core, EF Core, Clean Architecture, and modern React 19 / Next.js full-stack development.',
   aboutCode: `var fady = new Developer {
   Name = "Fady Kaiser",
   Role = "Full-Stack .NET Developer",
-  Backend = new[] { "ASP.NET Core", "EF Core", "Clean Architecture", "RESTful APIs", "SQL Server" },
-  Frontend = new[] { "React.js", "Next.js", "TypeScript", "Tailwind CSS", "Redux Toolkit" },
-  Architecture = new[] { "Onion Architecture", "3-Layer DAL/BLL", "Repository & Unit of Work" },
-  Passions = new[] { "Scalable Systems", "Clean Code", "Real-World Impact" },
-  OpenTo = "Full-Stack & Backend roles"
+  Backend = new[] { "ASP.NET Core 10", "EF Core 10", "Clean Architecture", "RESTful APIs", "SQL Server", "Redis" },
+  Frontend = new[] { "React 19", "Next.js 16", "TypeScript", "Tailwind CSS 4", "Framer Motion" },
+  Architecture = new[] { "Clean Architecture", "Onion Architecture", "Repository & Unit of Work" },
+  Testing = new[] { "xUnit", "Integration Tests (370+)", "Playwright", "Vitest" },
+  Passions = new[] { "Enterprise Scalability", "Clean Code", "High-Impact Systems" },
+  OpenTo = "Full-Stack, Backend & Frontend opportunities"
 };`
 };
 
 export const SKILLS = {
   backend: [
-    { name: 'C#', level: 90 },
-    { name: 'ASP.NET Core Web API', level: 92 },
-    { name: 'ASP.NET Core MVC', level: 85 },
-    { name: 'Entity Framework Core', level: 88 },
-    { name: 'SQL Server', level: 85 },
+    { name: 'C#', level: 92 },
+    { name: 'ASP.NET Core Web API', level: 94 },
+    { name: 'Entity Framework Core', level: 90 },
+    { name: 'SQL Server', level: 88 },
     { name: 'LINQ', level: 90 },
-    { name: 'SignalR', level: 80 }
+    { name: 'ASP.NET Core MVC', level: 85 },
+    { name: 'SignalR', level: 82 }
   ],
   frontend: [
-    { name: 'React.js', level: 88 },
-    { name: 'Next.js', level: 82 },
-    { name: 'TypeScript', level: 80 },
-    { name: 'Tailwind CSS', level: 90 },
-    { name: 'JavaScript (ES6+)', level: 88 },
+    { name: 'React 19 & Next.js 16', level: 90 },
+    { name: 'TypeScript', level: 86 },
+    { name: 'Tailwind CSS 4', level: 92 },
+    { name: 'JavaScript (ES6+)', level: 90 },
     { name: 'Redux Toolkit / Context API', level: 85 },
-    { name: 'HTML5 & CSS3', level: 92 }
+    { name: 'Framer Motion', level: 85 },
+    { name: 'HTML5 & CSS3', level: 95 }
   ],
   architecture: [
-    { name: 'Onion Architecture', level: 88 },
-    { name: '3-Layer Architecture', level: 90 },
-    { name: 'Repository & Unit of Work', level: 88 },
-    { name: 'Specification Pattern', level: 85 },
-    { name: 'SOLID Principles', level: 90 },
-    { name: 'RESTful API Design', level: 92 }
+    { name: 'Clean / Onion Architecture', level: 92 },
+    { name: 'Repository & Unit of Work', level: 90 },
+    { name: 'Specification Pattern', level: 88 },
+    { name: 'RESTful API Design & RFC 9457', level: 92 },
+    { name: 'SOLID Principles & OOP', level: 92 },
+    { name: 'Automated Testing (xUnit / Integration)', level: 88 }
   ],
   tools: [
-    { name: 'Redis Caching', level: 75 },
-    { name: 'Stripe Payments', level: 80 },
-    { name: 'JWT Auth & ASP.NET Identity', level: 88 },
-    { name: 'Git & GitHub', level: 85 },
-    { name: 'Postman & Swagger', level: 90 },
-    { name: 'Figma', level: 70 }
+    { name: 'Redis Caching', level: 82 },
+    { name: 'Stripe Payments', level: 82 },
+    { name: 'JWT Auth & ASP.NET Identity', level: 90 },
+    { name: 'Git & GitHub', level: 88 },
+    { name: 'Postman & Swagger / OpenAPI', level: 92 },
+    { name: 'Playwright & Vitest', level: 82 }
   ]
 };
 
 export const PROJECTS: Project[] = [
   {
+    id: 'gym-management-system',
+    title: 'Power Fitness — Gym Management System',
+    category: 'Full-Stack',
+    description: 'A production-ready full-stack gym platform: public website, admin dashboard, trainer console, and member portal in English & Arabic (RTL) with 379 integration tests.',
+    longDescription: 'Power Fitness is an enterprise full-stack fitness management system engineered with an ASP.NET Core 10 Web API backend and a Next.js 16 (React 19, TypeScript, Tailwind CSS 4) frontend. Built strictly following Clean Architecture with 96 RESTful endpoints and 379 integration tests. Features bilingual English/Arabic localization with complete RTL mirroring, dynamic membership lifecycle (freeze, renew, refund), class booking with trainer collision prevention, and automated QR code check-in verification.',
+    techStack: ['ASP.NET Core 10', 'Next.js 16', 'React 19', 'TypeScript', 'EF Core 10', 'SQL Server', 'Tailwind CSS 4', 'shadcn/ui', 'JWT Bearer', 'xUnit'],
+    features: [
+      'Bilingual English & Arabic (RTL) UI with flawless language switching and Lighthouse 100 accessibility/SEO scores.',
+      'Clean Architecture with 96 RESTful API endpoints and 379 integration tests covering edge cases and concurrency.',
+      'Rotating JWT refresh tokens with secure cookie storage and fine-grained claims-based RBAC.',
+      'Comprehensive subscription management: membership freeze, renew, refund, and automated class capacity enforcement.',
+      'Trainer clash prevention engine and automated QR code member check-in verification.',
+      'One-click demo logins on the login page for Admin, Trainer, and Member roles.'
+    ],
+    architecture: 'Clean Architecture on the backend with ASP.NET Core 10, EF Core 10, and SQL Server. Frontend built with Next.js 16 App Router, TypeScript, TanStack Query for server-state caching, and Tailwind CSS 4 for styling.',
+    challenges: 'Enforcing complex business rules (class capacity limits, trainer schedule collisions, and atomic membership transaction rollbacks) while supporting real-time RTL rendering.',
+    solutions: 'Engineered specialized domain validators and Unit of Work database transactions. Built a custom i18n RTL layout engine with zero hydration layout shifts.',
+    githubUrl: 'https://github.com/Fady519/GymManagementSystem',
+    liveUrl: 'https://power-fitness-gym.vercel.app',
+    demoCredentials: [
+      { role: 'Administrator', username: 'admin@gym.com', password: 'AdminPassword123!' },
+      { role: 'Trainer', username: 'trainer@gym.com', password: 'TrainerPassword123!' },
+      { role: 'Member', username: 'member@gym.com', password: 'MemberPassword123!' }
+    ]
+  },
+  {
+    id: 'e-commerce-fullstack',
+    title: 'LuxeStore — Full-Stack E-Commerce Platform',
+    category: 'Full-Stack',
+    description: 'An enterprise retail platform combining an ASP.NET Core 10 Web API and React 19 storefront with Redis caching, Stripe card checkout, and live admin management console.',
+    longDescription: 'LuxeStore is an enterprise-grade full-stack e-commerce system built with an ASP.NET Core 10 Web API backend and React 19 SPA frontend with Tailwind CSS and Vite. Implements Clean Onion Architecture with separated Domain, Services, Persistence, and Presentation layers. Features Redis distributed caching for shopping baskets and catalog output cache eviction, dual-mode checkout (Stripe card payments and Cash on Delivery), ASP.NET Identity with claims-based JWT RBAC, inventory intelligence, order lifecycle management, and Vitest/Playwright automated tests.',
+    techStack: ['ASP.NET Core 10 Web API', 'React 19', 'C#', 'EF Core 10', 'SQL Server', 'Redis', 'Stripe API', 'Vite', 'Tailwind CSS', 'JWT Bearer', 'Vitest'],
+    features: [
+      'Clean Onion Architecture strictly separating domain entities from infrastructure and Web API controllers.',
+      'Distributed Redis caching for session-isolated shopping baskets and tag-evicted output caching.',
+      'Dual-mode checkout engine supporting live Stripe card processing and Cash on Delivery.',
+      'Role-Based Access Control (RBAC) with ASP.NET Identity, JWT Bearer tokens, and 1-Click demo logins.',
+      'Integrated Admin Console with live revenue metrics, sales volume, order lifecycle tracking, and stock management.',
+      'Dynamic multi-category catalog with instant search, price sorting, and paginated product feeds.',
+      'Automated Vitest component tests and Playwright end-to-end integration test suites.'
+    ],
+    architecture: 'Clean Onion Architecture on the backend (Domain, Persistence, Services, Presentation Web API) with Generic Repository and Specification Patterns. React 19 frontend utilizing modular component patterns, custom Axios interceptors, and Tailwind CSS.',
+    challenges: 'Ensuring transactional consistency during checkout, preventing cart leakage across sessions, and handling high-concurrency catalog queries efficiently.',
+    solutions: 'Implemented Redis-backed basket storage isolated by user token, Stripe webhook/session synchronization, and tag-based output cache eviction whenever products or categories update.',
+    githubUrl: 'https://github.com/Fady519/Ecommerce-FullStack',
+    liveUrl: 'https://ecommerce-full-stack-nine.vercel.app',
+    demoCredentials: [
+      { role: 'Administrator', username: 'admin@luxestore.com', password: 'Password123!' },
+      { role: 'Customer', username: 'customer@luxestore.com', password: 'Password123!' }
+    ]
+  },
+  {
     id: 'advanced-admin-dashboard',
-    title: 'Advanced Admin Dashboard',
+    title: 'NexusPro — Advanced Admin Dashboard',
     category: 'Frontend',
     description: 'An enterprise-grade commercial dashboard featuring secure client-side routes, interactive scheduling, and flawless visual performance without hydration flickering.',
     longDescription: 'A premium, commercial-grade Administrative Dashboard application built with React, Next.js, and TypeScript. Strategically optimized for enterprise workflows, it addresses core architecture challenges like eliminating hydration-induced visual flickering and securing client-side routes. Features high-performance interactive calendars for resource planning, responsive side-navigation bars, and dense multi-series analytical charting tools configured for high-frequency data presentation.',
@@ -129,89 +182,29 @@ export const PROJECTS: Project[] = [
     challenges: 'Preventing client-side layout layout flickering during Next.js hydration phase and isolating complex calendar rendering processes from the core application pipeline.',
     solutions: 'Implemented an optimized client-ready lifecycle synchronization mechanism using React hooks, ensuring dense visual dashboards render completely stable from the first paint.',
     githubUrl: 'https://github.com/Fady519/Dashboard',
-    liveUrl: 'https://dashboard-flax-two-20.vercel.app/login' // 🔗 تم تحديث الرابط هنا بنجاح
-  },
-  {
-    id: 'e-commerce-api',
-    title: 'E-Commerce RESTful API',
-    category: 'Backend',
-    description: 'Production-grade e-commerce backend built with ASP.NET Core, implementing Onion Architecture, Redis caching, JWT auth, and Stripe payments.',
-    longDescription: 'A production-grade, high-performance E-Commerce API built using ASP.NET Core Web API. This system features clean Onion Architecture to divide the application into core, application, infrastructure, and presentation layers. Key integrations include Redis distributed caching for high-speed catalog querying, JWT authorization combined with ASP.NET Identity for secure user sessions, and Stripe API for processing checkout transactions end-to-end.',
-    techStack: ['ASP.NET Core Web API', 'C#', 'Entity Framework Core', 'SQL Server', 'Redis', 'Stripe API', 'AutoMapper', 'JWT Bearer', 'Swagger'],
-    features: [
-      'Clean Onion Architecture separating domain entity core from infrastructure database configurations.',
-      'Generic Repository Pattern and Specification Pattern with EF Core, standardizing query logic and preventing code duplication.',
-      'Redis distributed caching to store catalog and cart data, boosting query speeds and reducing SQL Server loads.',
-      'Secure identity management using ASP.NET Identity, enabling custom claims-based access controls (RBAC) and JWT JWT bearer generation.',
-      'End-to-end payment gateway processing via Stripe API, tracking session creation, checkouts, and updating payment statuses.',
-      'Custom middleware for global exception handling, standardized API responses, and request logging.',
-      'Fully asynchronous pipelines utilizing C# async/await to maximize concurrent request throughput.'
-    ],
-    architecture: 'Onion Architecture (Clean Architecture) with Core (Domain & Application), Infrastructure (Persistence), and Presentation (Web API) layers. The repository pattern abstracting database access layers and Specification Pattern mapping complex filter criteria.',
-    challenges: 'Designing complex queries with pagination, filtering, search, and sorting that scale without repeating DB-access code or blocking threads under load.',
-    solutions: 'Developed a robust Specification pattern that accepts LINQ expressions dynamically. The Repository class compiles these specifications into SQL statements, optimizing performance and enforcing absolute DRY principles.',
-    githubUrl: 'https://github.com/Fady519/E_CommerceSolution',
-    liveUrl: 'http://ecommercesolution.runasp.net/swagger/index.html'
-  },
-  {
-    id: 'gym-management-system',
-    title: 'Gym Management System',
-    category: 'Backend', // 🏋️ تم النقل لقسم الباك اند بناء على طلبك
-    description: 'Full-featured enterprise gym management web portal supporting RBAC, atomic booking transactions, and interactive administration dashboards.',
-    longDescription: 'A fully featured administration and member system built using ASP.NET Core MVC. Employs 3-Layer Architecture (DAL/BLL/UI) to handle gym memberships, subscriptions, booking classes, and session scheduling. The project leverages ASP.NET Identity for security across multiple distinct roles (Member, Admin, Super Admin) and features a detailed analytics service to surface crucial business metrics.',
-    techStack: ['C#', 'ASP.NET Core MVC', 'Entity Framework Core', 'SQL Server', 'AutoMapper', 'LINQ', 'ASP.NET Identity', 'Bootstrap'],
-    features: [
-      '3-Layer Architecture separating presentation view layers from business logic rules and data access tables.',
-      'Repository Pattern and Unit of Work to encapsulate transaction commits, ensuring all operations on members and bills complete atomically.',
-      'Strict Role-Based Access Control (RBAC) across 12+ dashboard pages preventing unauthorized staff actions.',
-      'Live Analytics dashboard showcasing active memberships, revenue stats, daily sessions, and membership statuses.',
-      'AutoMapper setup reducing object mapping boilerplate by over 60%, isolating view-models from core domain structures.',
-      'Complete custom member registration, payment logging, and automated session scheduling.'
-    ],
-    architecture: 'Traditional 3-Layer architecture featuring Data Access Layer (DAL) representing EF Core DBContext, Business Logic Layer (BLL) encapsulating operations, and ASP.NET Core MVC presenting HTML views and managing controller queries.',
-    challenges: 'Managing multi-step transactional integrity when enrolling a member—assigning schedules, initiating billing, and activating access logs required synchronized database commits.',
-    solutions: 'Applied the Unit of Work pattern alongside DbContext transactions, ensuring all tables are updated concurrently or rolled back perfectly if any step fails.',
-    githubUrl: 'https://github.com/Fady519/GymManagementSystem',
-    liveUrl: 'http://gymmanagementsystem54.runasp.net'
-  },
-  {
-    id: 'freshcart-ecommerce',
-    title: 'FreshCart E-Commerce Platform',
-    category: 'Frontend',
-    description: 'Modern, highly responsive single-page web storefront equipped with Redux cart systems, form schemas, and gorgeous smooth animations.',
-    longDescription: 'A modern, premium front-end e-commerce single page application designed to provide a shopping journey. Features highly curated layouts, robust cart management, real-time client-side validation, and smooth route and micro-interactions optimized for mobile and desktop screens.',
-    techStack: ['React.js', 'Next.js', 'Redux Toolkit', 'Tailwind CSS', 'Axios', 'React Hook Form', 'Framer Motion', 'TypeScript'],
-    features: [
-      'Fully responsive, mobile-first design with interactive shopping drawers, grid layouts, and sliding sliders.',
-      'Centralized client-side state using Redux Toolkit to sync carts, user authentication, and wishlists seamlessly across all sections.',
-      'Route-based code splitting and lazy loading to achieve fast first-contentful-paint (FCP) scores.',
-      'Stunning animated product catalogs and layout transitions using Framer Motion with custom easing properties.',
-      'Schema-based input validation using React Hook Form, presenting custom error feedback across multi-step checkout forms.',
-      'Dynamic product filters, category carousels, and persistent storage synchronization.'
-    ],
-    architecture: 'Modular React Component Architecture leveraging Next.js file-system routing. Redux slices handle state streams, while custom Tailwind utilities support custom screen scale factors.',
-    challenges: 'Preventing excessive re-renders during state mutations (e.g., adding to cart, sorting filters) and keeping bundle sizes lightweight for mobile devices.',
-    solutions: 'Utilized React memoization hooks (useMemo, useCallback) for computationally heavy filtering, split styles into tailwind-only utilities, and applied lazy loading for offscreen sliders and drawers.',
-    githubUrl: 'https://github.com/Fady519/Ecommerce-Website',
-    liveUrl: 'https://fady519.github.io/Ecommerce-Website/login'
+    liveUrl: 'https://dashboard-flax-two-20.vercel.app/login',
+    demoCredentials: [
+      { role: 'Administrator', username: 'admin@admin.com', password: 'admin' }
+    ]
   },
   {
     id: 'cinema-streaming',
-    title: 'Cinema+ Streaming Discovery',
+    title: 'Cinema+ — Streaming Discovery & Playback',
     category: 'Frontend',
-    description: 'High-fidelity cinematic streaming search and discovery portal consuming the TMDB REST API with custom auth guards.',
-    longDescription: 'Cinema+ is an elegant, mobile-responsive video discovery platform that aggregates rich cinematic data from the official TMDB REST API. It showcases trending titles, active trailers, customized genre pages, and instant search capabilities powered by input debouncing.',
-    techStack: ['React.js', 'Tailwind CSS', 'Axios', 'React Router', 'TMDB API', 'Context API'],
+    description: 'High-fidelity cinematic streaming search and discovery portal consuming 8 TMDB REST API endpoints with embedded HD YouTube trailer streaming.',
+    longDescription: 'Cinema+ is an elegant, mobile-responsive video discovery platform that aggregates rich cinematic data from the official TMDB REST API. It showcases randomized trending spotlight heroes, embedded HD trailer playback powered by React YouTube, customized multi-genre explorers, real-time search, and a persistent client-side watchlist.',
+    techStack: ['React 19', 'Vite', 'React Router 7', 'Tailwind CSS', 'Framer Motion', 'Axios', 'TMDB REST API', 'React YouTube'],
     features: [
-      'Live integration with TMDB REST API over 8+ distinct endpoints for real-time video discovery.',
-      'Persistent "My Watchlist" feature managed via React Context API to let users save shows across page refreshes.',
-      'Debounced live search querying database catalogs smoothly on keystroke, preventing API request bottlenecks.',
-      'Mobile-first responsive fluid grids featuring content skeleton loading screens covering empty async state fetches.',
-      'Protected client-side routing gates restricting access to trailers and watchlist panels without active logins.'
+      'Live integration with TMDB REST API across 8 distinct endpoints for real-time video and catalog discovery.',
+      'Embedded HD trailer streaming player utilizing React YouTube and the YouTube IFrame API.',
+      'Persistent "My Watchlist" feature managed via LocalStorage to let users bookmark titles across sessions.',
+      'Instant real-time search engine querying database catalogs with synchronized URL query parameters.',
+      'Mobile-first responsive fluid grids with custom shimmer skeleton loading screens preventing layout shift (CLS).',
+      'Protected client-side routing gates restricting access to trailers and watchlist views without login.'
     ],
-    architecture: 'Standard SPA using React Router, consuming a central Context API to pass state down the tree, coupled with Axios instance interceptors mapping global backend headers.',
+    architecture: 'Single Page Application utilizing React Router 7, consuming TMDB REST API via Axios instances, with LocalStorage state persistence and Framer Motion micro-animations.',
     challenges: 'Handling multiple concurrent TMDB API calls on the homepage without rendering erratic layouts or facing API rate limit blocking.',
-    solutions: 'Created specialized Promise.all hook routines and coupled with layout skeleton states to guarantee all grids load synchronously with pleasant visual transitions.',
+    solutions: 'Engineered specialized asynchronous API handling routines and coupled with shimmer skeleton states to guarantee all grids load synchronously with pleasant visual transitions.',
     githubUrl: 'https://github.com/Fady519/Cinema-Fady',
     liveUrl: 'https://fady519.github.io/Cinema-Fady/'
   }
@@ -219,17 +212,17 @@ export const PROJECTS: Project[] = [
 
 export const EXPERIENCES: Experience[] = [
   {
-    role: '.NET Backend Developer',
+    role: 'Full-Stack .NET Developer Trainee',
     company: 'Route Academy',
-    location: 'Cairo, Egypt',
-    duration: 'May 2025 – Dec 2025',
+    location: 'Cairo, Egypt (On-site)',
+    duration: 'May 2025 – Oct 2025',
     description: [
-      'Completed 150+ hours of structured intensive training on C#, ASP.NET Core, EF Core, SQL Server, and Clean Architectures.',
-      'Architected high-throughput task management backend systems, reducing query overhead and improving maintainability.',
-      'Designed and validated 20+ RESTful API endpoints, verifying validation rules and exception flows with structured Postman collections.',
-      'Configured secure authorization schemes with JWT Bearer tokens and custom claims-based access controls.',
-      'Integrated real-time SignalR hubs supporting live chat, group channels, and real-time push updates.',
-      'Collaborated inside agile scrum environments across 4 bi-weekly sprints, facilitating peer reviews and code branching.'
+      'Completed an intensive, hands-on 150+ hour software development training program focused on building production-ready web applications, modern architectural patterns, and scalable APIs.',
+      'Engineered robust RESTful Web APIs using C#, ASP.NET Core, and Entity Framework Core following Clean Architecture and Onion Architecture principles.',
+      'Implemented relational database models, complex LINQ queries, and migrations using SQL Server with Repository and Unit of Work patterns.',
+      'Configured secure authentication and authorization systems utilizing ASP.NET Identity, JWT Bearer tokens, and Role-Based Access Control (RBAC).',
+      'Developed dynamic, responsive client-side user interfaces utilizing React, Next.js, TypeScript, and Tailwind CSS integrated with backend services.',
+      'Applied SOLID design principles, Object-Oriented Programming (OOP), and clean code standards in agile sprint environments with Git/GitHub.'
     ]
   }
 ];
@@ -237,13 +230,20 @@ export const EXPERIENCES: Experience[] = [
 export const EDUCATION: Education[] = [
   {
     degree: 'B.Sc. in Computer Science',
-    institution: 'Faculty of Computers and Information, HTI',
+    institution: 'Higher Technological Institute (HTI)',
     location: '10th of Ramadan, Egypt',
-    duration: '2023 – Expected July 2027'
+    duration: '2023 – Expected May 2027'
   }
 ];
 
 export const CERTIFICATIONS: Certification[] = [
+  {
+    name: 'Mastering ASP.NET Core: Concepts to Production-Ready APIs',
+    issuer: 'Metigator (Issam Abdelnabi)',
+    year: '2026',
+    credentialId: 'cert_b645q3rt',
+    image: '/certificates/metigator_aspnetcore.png'
+  },
   {
     name: '.NET Core Backend Development Diploma',
     issuer: 'Route Academy',
@@ -267,42 +267,42 @@ export const SERVICES: Service[] = [
     description: 'Designing high-performance APIs and robust databases built to scale. I craft secure architectures using the latest enterprise frameworks.',
     iconName: 'Server',
     features: [
-      'ASP.NET Core Web API & MVC architectures',
-      'Onion & Clean Architecture implementation',
+      'ASP.NET Core Web API & Clean Architecture',
+      'Onion Architecture & Domain-Driven Design',
       'Database modeling & SQL Server optimization',
       'Redis Distributed Caching setup',
       'JWT Auth & Identity authorization (RBAC)'
     ]
   },
   {
-    title: 'Stunning SPA Frontends',
+    title: 'Full-Stack & SPA Frontends',
     description: 'Building gorgeous, pixel-perfect interfaces that deliver frictionless user experiences on mobile and desktop screens.',
     iconName: 'Layout',
     features: [
-      'Next.js & React App development',
-      'TypeScript migration & integration',
-      'State stream synchronization (Redux Toolkit)',
-      'Highly stylized layouts using Tailwind CSS',
+      'Next.js 16 & React 19 App development',
+      'TypeScript integration & strict type safety',
+      'State stream synchronization (Redux / Context)',
+      'Highly stylized layouts using Tailwind CSS 4',
       'Framer Motion smooth scroll & hover animations'
     ]
   },
   {
-    title: 'Performance & Architecture Auditing',
-    description: 'Refactoring existing repositories to resolve design flaws, minimize render lag, and elevate architectural scalability.',
+    title: 'Architecture & Automated Testing',
+    description: 'Enforcing rock-solid reliability with clean design patterns and comprehensive integration test coverage.',
     iconName: 'Zap',
     features: [
       'Applying Repository & Specification patterns',
-      'Enforcing strict SOLID principles',
-      'Minimizing code redundancy (DRY code)',
+      'xUnit & Automated Integration Testing (370+ tests)',
+      'Enforcing strict SOLID & Clean Code principles',
       'Bundle size optimization & code splitting',
-      'API bottleneck diagnosis and resolution'
+      'RFC 9457 standardized error handling'
     ]
   }
 ];
 
 export const STATS = [
   { label: 'Completed Training Hours', value: '150+' },
-  { label: 'Enterprise Projects Completed', value: '5+' },
-  { label: 'Agile Sprints Managed', value: '4' },
-  { label: 'Technologies Mastered', value: '15+' }
+  { label: 'Production Projects Completed', value: '4+' },
+  { label: 'Integration Tests Written', value: '370+' },
+  { label: 'Technologies Mastered', value: '18+' }
 ];

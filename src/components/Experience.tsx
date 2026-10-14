@@ -161,18 +161,39 @@ export default function Experience() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, margin: '-100px' }}
                     transition={{ type: 'spring', stiffness: 100, damping: 15, delay: idx * 0.05 }}
-                    className="glass-panel p-5 rounded-xl border border-white/10 hover:border-accent/40 transition-all duration-300 relative group overflow-hidden"
+                    className="glass-panel p-5 rounded-xl border border-white/10 hover:border-accent/40 transition-all duration-300 relative group overflow-hidden flex flex-col justify-between"
                   >
                     <div className="absolute top-0 right-0 w-16 h-16 bg-accent/5 rounded-full blur-xl group-hover:bg-accent/10 transition-colors pointer-events-none" />
 
-                    <h4 className="font-outfit font-bold text-sm text-white group-hover:text-accent transition-colors leading-tight mb-2">
-                      {cert.name}
-                    </h4>
-                    <div className="flex items-center justify-between text-xs text-gray-400">
-                      <span>{cert.issuer}</span>
-                      <span className="bg-white/5 border border-white/5 px-2 py-0.5 rounded font-mono text-gray-300 shrink-0">
-                        {cert.year}
-                      </span>
+                    <div>
+                      <h4 className="font-outfit font-bold text-sm text-white group-hover:text-accent transition-colors leading-tight mb-1">
+                        {cert.name}
+                      </h4>
+                      {cert.credentialId && (
+                        <span className="text-[10px] text-gray-500 font-mono block mb-2">
+                          ID: {cert.credentialId}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="flex items-center justify-between text-xs text-gray-400 mt-3 pt-2 border-t border-white/5">
+                      <span className="truncate max-w-[130px]">{cert.issuer}</span>
+                      <div className="flex items-center gap-2">
+                        {cert.image && (
+                          <a
+                            href={cert.image}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[11px] text-accent hover:underline font-mono"
+                            title="View Certificate"
+                          >
+                            View
+                          </a>
+                        )}
+                        <span className="bg-white/5 border border-white/5 px-2 py-0.5 rounded font-mono text-gray-300 shrink-0">
+                          {cert.year}
+                        </span>
+                      </div>
                     </div>
                   </motion.div>
                 ))}

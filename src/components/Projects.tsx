@@ -15,29 +15,27 @@ export default function Projects() {
 
   const filters: FilterType[] = ['All', 'Full-Stack', 'Backend', 'Frontend'];
 
-  // 🛠️ الفلترة الذكية: لو المشروع هو الجيم، هيظهر في الـ Backend والـ Full-Stack والـ All
+  
   const filteredProjects = activeFilter === 'All'
     ? PROJECTS
     : PROJECTS.filter(p => {
-        if (p.id === 'gym-management-system') {
-          return activeFilter === 'Backend' || activeFilter === 'Full-Stack';
-        }
+        if (activeFilter === 'Full-Stack') return p.category === 'Full-Stack';
+        if (activeFilter === 'Backend') return p.category === 'Backend' || p.category === 'Full-Stack';
+        if (activeFilter === 'Frontend') return p.category === 'Frontend' || p.category === 'Full-Stack';
         return p.category === activeFilter;
       });
 
   const projectGradients: Record<string, string> = {
     'advanced-admin-dashboard': 'from-orange-600/20 via-amber-600/20 to-yellow-600/20 border-amber-500/20',
-    'e-commerce-api': 'from-blue-600/20 via-indigo-600/20 to-purple-600/20 border-blue-500/20',
+    'e-commerce-fullstack': 'from-blue-600/20 via-indigo-600/20 to-purple-600/20 border-blue-500/20',
     'gym-management-system': 'from-emerald-600/20 via-teal-600/20 to-cyan-600/20 border-emerald-500/20',
-    'freshcart-ecommerce': 'from-cyan-600/20 via-blue-600/20 to-indigo-600/20 border-cyan-500/20',
     'cinema-streaming': 'from-purple-600/20 via-pink-600/20 to-rose-600/20 border-purple-500/20',
   };
 
   const projectIcons: Record<string, string> = {
     'advanced-admin-dashboard': '📊',
-    'e-commerce-api': '🛒',
+    'e-commerce-fullstack': '🛍️',
     'gym-management-system': '🏋️',
-    'freshcart-ecommerce': '🥗',
     'cinema-streaming': '🎬',
   };
 
@@ -102,9 +100,8 @@ export default function Projects() {
                     {projectIcons[project.id]}
                   </span>
 
-                  {/* الـ Badge هنا هيعرض ديناميكياً الكاتيجوري المناسبة بناءً على الفلتر النشط لمشروع الجيم */}
                   <span className="absolute top-3 right-3 bg-white/5 border border-white/10 backdrop-blur px-2.5 py-0.5 rounded-full text-[10px] font-mono font-medium text-gray-300">
-                    {project.id === 'gym-management-system' && activeFilter !== 'All' ? activeFilter : project.category}
+                    {project.category}
                   </span>
                 </div>
 
@@ -203,7 +200,7 @@ export default function Projects() {
                         {selectedProject.title}
                       </h3>
                       <span className="inline-block mt-1 px-2.5 py-0.5 rounded bg-primary/10 border border-primary/20 text-[10px] font-semibold text-primary font-mono uppercase tracking-wider">
-                        {selectedProject.id === 'gym-management-system' ? 'Full-Stack / Backend' : `${selectedProject.category}`} System
+                        {selectedProject.category} Architecture
                       </span>
                     </div>
                     <button
