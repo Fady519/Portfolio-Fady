@@ -56,9 +56,9 @@ Chronological timeline detailing hands-on software development training, academi
 
 | Project | Category | Key Architectural Highlights | Live Links |
 |---|---|---|---|
-| **🏋️ Power Fitness** | Full-Stack | Clean Architecture, ASP.NET Core 10 Web API, Next.js 16, 96 endpoints, **379 integration tests**, English/Arabic RTL, QR check-in | [Live Demo](https://power-fitness-gym.vercel.app) · [Code](https://github.com/Fady519/GymManagementSystem) |
-| **🛍️ LuxeStore** | Full-Stack | Clean Onion Architecture, ASP.NET Core 10, React 19, Redis distributed caching, Stripe checkout, JWT RBAC, live admin console | [Live Demo](https://ecommerce-full-stack-nine.vercel.app) · [Code](https://github.com/Fady519/Ecommerce-FullStack) |
-| **📊 NexusPro** | Frontend | Enterprise administrative dashboard, Next.js, TypeScript, FullCalendar scheduling, zero-flicker dark mode, multi-series charts | [Live Demo](https://dashboard-flax-two-20.vercel.app/login) · [Code](https://github.com/Fady519/Dashboard) |
+| **🏋️ Power Fitness** | Full-Stack | 3-layer architecture, ASP.NET Core 10 Web API, Next.js 16, 96 endpoints, **379 integration tests**, English/Arabic RTL, QR check-in | [Live Demo](https://power-fitness-gym.vercel.app) · [Code](https://github.com/Fady519/GymManagementSystem) |
+| **🛍️ LuxeStore** | Full-Stack | Onion Architecture, ASP.NET Core 10, React 19, SQL Server baskets, Output Caching, Stripe (test mode) + Cash on Delivery, JWT RBAC, admin console | [Live Demo](https://ecommerce-full-stack-nine.vercel.app) · [Code](https://github.com/Fady519/Ecommerce-FullStack) |
+| **📊 Admin Dashboard** | Frontend | Administrative dashboard, Next.js 16, React 19, TypeScript, Recharts, FullCalendar scheduling, zero-flicker dark mode, multi-series charts | [Live Demo](https://dashboard-flax-two-20.vercel.app/login) · [Code](https://github.com/Fady519/Dashboard) |
 | **🎬 Cinema+** | Frontend | Netflix-inspired movie discovery app, React 19, TMDB REST API (8 endpoints), embedded HD YouTube trailer player, persistent watchlist | [Live Demo](https://fady519.github.io/Cinema-Fady/) · [Code](https://github.com/Fady519/Cinema-Fady) |
 
 ---
