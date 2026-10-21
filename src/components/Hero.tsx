@@ -127,6 +127,16 @@ export default function Hero() {
                       className="absolute right-0 left-0 sm:left-auto sm:right-0 mt-2 w-full sm:w-56 glass-panel rounded-xl overflow-hidden shadow-2xl z-50 border border-white/10"
                     >
                       <a
+                        href={PERSONAL_INFO.cv.fullStack}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 px-4 py-3 text-sm text-gray-300 hover:bg-accent/10 hover:text-white transition-colors border-b border-white/5"
+                        onClick={() => setCvDropdownOpen(false)}
+                      >
+                        <FileText className="w-4 h-4 text-accent" />
+                        <span>Full-Stack .NET CV</span>
+                      </a>
+                      <a
                         href={PERSONAL_INFO.cv.backend}
                         target="_blank"
                         rel="noopener noreferrer"

@@ -57,8 +57,9 @@ export const PERSONAL_INFO = {
   github: 'https://github.com/Fady519',
   linkedin: 'https://www.linkedin.com/in/fady-kaiser/',
   cv: {
-    backend: 'https://drive.google.com/file/d/1H_r9iGnTWySJITtjkcjYL-Katq6SmpDz/view?usp=sharing',
-    frontend: 'https://drive.google.com/file/d/12T6kkrsDSla3sYswNjE24xQW8SJwJDwj/view?usp=sharing'
+    backend: 'https://drive.google.com/file/d/10__8MX8fpicJ1aKHs2QahLJ7hly8KYMb/view?usp=sharing',
+    frontend: 'https://drive.google.com/file/d/1D-cZHo0aYyYqZI8w16qMPNNe3MKY8nth/view?usp=sharing',
+    fullStack: 'https://drive.google.com/file/d/1o7nuMuKR1vMOCwGmaLRHMif4tSeIrtCr/view?usp=sharing'
   },
   whatsapp: 'https://wa.me/201201575765',
   bio: 'Full-Stack Software Engineer with a solid Computer Science foundation and hands-on experience architecting production-grade server-side systems and highly interactive responsive interfaces. Specialized in ASP.NET Core, EF Core, layered and Onion architectures, and modern React 19 / Next.js full-stack development.',
@@ -82,7 +83,8 @@ export const SKILLS = {
     { name: 'SQL Server', level: 88 },
     { name: 'LINQ', level: 90 },
     { name: 'ASP.NET Core MVC', level: 85 },
-    { name: 'SignalR', level: 82 }
+    { name: 'SignalR', level: 82 },
+    { name: 'xUnit', level: 82 }
   ],
   frontend: [
     { name: 'React 19 & Next.js 16', level: 90 },
