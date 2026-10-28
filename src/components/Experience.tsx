@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, Award, Calendar, MapPin } from 'lucide-react';
-import { EXPERIENCES, EDUCATION, CERTIFICATIONS } from '@/lib/data';
+import { BookOpen, GraduationCap, Award, Calendar, MapPin } from 'lucide-react';
+import { COURSES, EDUCATION, CERTIFICATIONS } from '@/lib/data';
 
 export default function Experience() {
   const itemVariants = {
@@ -25,29 +25,29 @@ export default function Experience() {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="font-outfit text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-            Journey & <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Credentials</span>
+            Education & <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Courses</span>
           </h2>
           <div className="w-12 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6" />
           <p className="text-gray-400 font-outfit text-lg max-w-2xl mx-auto leading-relaxed">
-            A chronological timeline of my professional accomplishments, academic education, and certifications.
+            My degree, the courses I completed and their certificates.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          
-          {/* Left Column: Work Experience */}
+
+          {/* Left Column: Courses */}
           <div className="lg:col-span-6 flex flex-col gap-8">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                <Briefcase className="w-5 h-5 text-primary" />
+                <BookOpen className="w-5 h-5 text-primary" />
               </div>
-              <h3 className="font-outfit text-2xl font-bold text-white">Work History</h3>
+              <h3 className="font-outfit text-2xl font-bold text-white">Courses</h3>
             </div>
 
             <div className="relative border-l-2 border-white/5 pl-8 ml-5 flex flex-col gap-10">
-              {EXPERIENCES.map((exp, idx) => (
+              {COURSES.map((course) => (
                 <motion.div
-                  key={exp.company}
+                  key={course.title}
                   variants={itemVariants as any}
                   initial="hidden"
                   whileInView="visible"
@@ -63,26 +63,26 @@ export default function Experience() {
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                       <div>
                         <h4 className="font-outfit font-extrabold text-xl text-white group-hover:text-primary transition-colors">
-                          {exp.role}
+                          {course.title}
                         </h4>
                         <span className="text-sm font-semibold text-secondary font-outfit block mt-0.5">
-                          {exp.company}
+                          {course.provider}
                         </span>
                       </div>
                       <div className="flex flex-col items-end gap-1 text-xs text-gray-500 font-mono">
                         <span className="flex items-center gap-1.5 bg-white/5 border border-white/5 px-2.5 py-1 rounded-md text-gray-300">
                           <Calendar className="w-3 h-3 text-secondary" />
-                          {exp.duration}
+                          {course.duration}
                         </span>
                         <span className="flex items-center gap-1.5 text-gray-400">
                           <MapPin className="w-3 h-3" />
-                          {exp.location}
+                          {course.location}
                         </span>
                       </div>
                     </div>
 
                     <ul className="list-none flex flex-col gap-2.5 text-sm text-gray-400">
-                      {exp.description.map((bullet, bidx) => (
+                      {course.description.map((bullet, bidx) => (
                         <li key={bidx} className="flex gap-2 items-start leading-relaxed">
                           <span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 mt-2" />
                           <span>{bullet}</span>
@@ -150,7 +150,7 @@ export default function Experience() {
                 <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center">
                   <Award className="w-5 h-5 text-accent" />
                 </div>
-                <h3 className="font-outfit text-2xl font-bold text-white">Certifications</h3>
+                <h3 className="font-outfit text-2xl font-bold text-white">Certificates</h3>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 ml-1">
@@ -179,9 +179,9 @@ export default function Experience() {
                     <div className="flex items-center justify-between text-xs text-gray-400 mt-3 pt-2 border-t border-white/5">
                       <span className="truncate max-w-[130px]">{cert.issuer}</span>
                       <div className="flex items-center gap-2">
-                        {cert.image && (
+                        {cert.link && (
                           <a
-                            href={cert.image}
+                            href={cert.link}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-[11px] text-accent hover:underline font-mono"

@@ -39,11 +39,11 @@ export default function Services() {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="font-outfit text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-            Professional <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Services</span>
+            What I <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Do</span>
           </h2>
           <div className="w-12 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6" />
           <p className="text-gray-400 font-outfit text-lg max-w-2xl mx-auto leading-relaxed">
-            I build specialized solutions, ensuring reliable server code, fast loads, and stunning visual interfaces.
+            The kind of work I can take on in a team: backend APIs, frontends and the tests around them.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ export default function Services() {
 
               {/* Decorative CTA */}
               <span className="font-outfit text-xs font-bold text-gray-500 group-hover:text-primary transition-colors mt-4 block self-start">
-                Enterprise Standards & Solid SOLID Patterns
+                Clean code · SOLID · Tested
               </span>
             </motion.div>
           ))}

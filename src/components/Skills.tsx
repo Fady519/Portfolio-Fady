@@ -53,7 +53,7 @@ export default function Skills() {
           </h2>
           <div className="w-12 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6" />
           <p className="text-gray-400 font-outfit text-lg max-w-2xl mx-auto leading-relaxed">
-            A deep-dive overview of my professional engineering tools, design patterns, and programming stack.
+            The tools and patterns I use, and where I used each one.
           </p>
         </div>
 
@@ -84,34 +84,19 @@ export default function Skills() {
               initial="hidden"
               animate="visible"
               exit={{ opacity: 0, transition: { duration: 0.15 } }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full"
+              className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full"
             >
               {currentSkills.map((skill) => (
                 <motion.div
                   key={skill.name}
                   variants={skillVariants as any}
-                  className="flex flex-col gap-2 group"
+                  className="flex flex-col gap-1.5 px-5 py-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-primary/30 transition-colors group"
                 >
-                  <div className="flex justify-between items-center px-1">
-                    <span className="font-outfit font-semibold text-white group-hover:text-primary transition-colors flex items-center gap-2">
-                      <Sparkles className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-secondary transition-all" />
-                      {skill.name}
-                    </span>
-                    <span className="font-mono text-xs text-secondary font-medium">{skill.level}%</span>
-                  </div>
-
-                  {/* Visual Progress Slider bar */}
-                  <div className="h-2.5 w-full bg-white/5 rounded-full overflow-hidden border border-white/5 relative">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1, ease: 'easeOut' }}
-                      className="h-full rounded-full bg-gradient-to-r from-primary to-secondary relative"
-                    >
-                      {/* Interactive glowing tip */}
-                      <div className="absolute right-0 top-0 bottom-0 w-2 bg-white blur-[2px] opacity-70" />
-                    </motion.div>
-                  </div>
+                  <span className="font-outfit font-semibold text-white group-hover:text-primary transition-colors flex items-center gap-2">
+                    <Sparkles className="w-3.5 h-3.5 text-secondary" />
+                    {skill.name}
+                  </span>
+                  <span className="text-sm text-gray-400 leading-relaxed">{skill.note}</span>
                 </motion.div>
               ))}
             </motion.div>

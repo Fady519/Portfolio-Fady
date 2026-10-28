@@ -17,10 +17,10 @@
 
 <div align="center">
 
-## ✦ Engineered to Impress. Designed to Convert.
-**A modern, blazing-fast personal software engineering portfolio built with Next.js 16, React 19, and TypeScript.**  
-*Clean Component Architecture · Tailwind CSS 4 · Framer Motion · Interactive Modals · Static Site Generation (SSG)*  
-Curated to showcase production-grade full-stack systems, architectural blueprints, verified credentials, and real-world engineering impact.
+## ✦ My personal portfolio
+**A static portfolio site built with Next.js 16, React 19 and TypeScript, deployed to GitHub Pages.**  
+*Tailwind CSS 4 · Framer Motion · Project detail modals · Static export*  
+It shows my projects (with live demos and source code), the skills I used in each one, my courses and certificates, and how to contact me.
 
 </div>
 
@@ -34,47 +34,47 @@ Curated to showcase production-grade full-stack systems, architectural blueprint
 
 </div>
 
-### 1. Modern Hero & Interactive Terminal Showcase
-Dynamic greeting, floating skill indicators, direct CV download routing, and interactive C# Developer object snippet.
+### 1. Hero
+Greeting, CV download menu (Full-Stack, Backend and Frontend CVs) and a small C# snippet that sums up my stack.
 ![Portfolio Hero](docs/screenshots/01_hero.png)
 
-### 2. Selective Engineering Projects Grid
-Multi-category filtering (All, Full-Stack, Backend, Frontend) with 1-click architecture deep-dive inspection modals and live demo triggers.
+### 2. Projects
+Filter by category (All, Full-Stack, Backend, Frontend) and open a project to see its architecture, challenges, solutions and demo logins.
 ![Featured Projects](docs/screenshots/02_projects.png)
 
-### 3. Interactive Technical Skills Matrix
-Categorized technical breakdown across Backend Development, Frontend & UI/UX, System Architecture, and Tools & Security.
+### 3. Skills
+Skills grouped into Backend, Frontend, Architecture and Tools, each with a note about where I used it.
 ![Technical Skills](docs/screenshots/03_skills.png)
 
-### 4. Professional Timeline, Education & Verified Credentials
-Chronological timeline detailing hands-on software development training, academic Computer Science coursework at HTI, and verified industry certifications (including Metigator ASP.NET Core API Mastery).
+### 4. Education, Courses & Certificates
+My Computer Science degree at HTI, the Route Academy and Metigator courses, and links to the certificates.
 ![Experience & Certifications](docs/screenshots/04_experience_certs.png)
 
 ---
 
-## 🚀 Featured Engineering Projects
+## 🚀 Featured Projects
 
-| Project | Category | Key Architectural Highlights | Live Links |
+| Project | Category | Highlights | Live Links |
 |---|---|---|---|
 | **🏋️ Power Fitness** | Full-Stack | 3-layer architecture, ASP.NET Core 10 Web API, Next.js 16, 96 endpoints, **379 integration tests**, English/Arabic RTL, QR check-in | [Live Demo](https://power-fitness-gym.vercel.app) · [Code](https://github.com/Fady519/GymManagementSystem) |
 | **🛍️ LuxeStore** | Full-Stack | Onion Architecture, ASP.NET Core 10, React 19, SQL Server baskets, Output Caching, Stripe (test mode) + Cash on Delivery, JWT RBAC, admin console | [Live Demo](https://ecommerce-full-stack-nine.vercel.app) · [Code](https://github.com/Fady519/Ecommerce-FullStack) |
-| **📊 Admin Dashboard** | Frontend | Administrative dashboard, Next.js 16, React 19, TypeScript, Recharts, FullCalendar scheduling, zero-flicker dark mode, multi-series charts | [Live Demo](https://dashboard-flax-two-20.vercel.app/login) · [Code](https://github.com/Fady519/Dashboard) |
-| **🎬 Cinema+** | Frontend | Netflix-inspired movie discovery app, React 19, TMDB REST API (8 endpoints), embedded HD YouTube trailer player, persistent watchlist | [Live Demo](https://fady519.github.io/Cinema-Fady/) · [Code](https://github.com/Fady519/Cinema-Fady) |
+| **📊 Admin Dashboard** | Frontend | Frontend admin dashboard, Next.js 16, React 19, TypeScript, Recharts, FullCalendar scheduler, React Hook Form + Zod, dark mode without a theme flash | [Live Demo](https://dashboard-flax-two-20.vercel.app/login) · [Code](https://github.com/Fady519/Dashboard) |
+| **🎬 Cinema+** | Frontend | Movie & TV discovery app, React 19, TMDB REST API, YouTube trailers, watchlist saved in localStorage | [Live Demo](https://fady519.github.io/Cinema-Fady/) · [Code](https://github.com/Fady519/Cinema-Fady) |
 
 ---
 
-## ✨ Core Features & Technical Highlights
+## ✨ Features
 
-| Feature | Engineering Description |
+| Feature | Description |
 |---|---|
-| ⚡ **Next.js 16 + React 19 Engine** | Powered by Next.js App Router with Static Site Generation (SSG) for sub-second page loads |
-| 🔷 **Strict TypeScript Typing** | Fully type-safe data schemas for projects, credentials, skills, and contact forms |
-| 🎞️ **Fluid Framer Motion Micro-Interactions** | Staggered entrance animations, hover spring dynamics, and smooth layout reordering |
-| 🎨 **Tailwind CSS 4 Modern Styling** | Modern utility-first CSS engine with zero-runtime stylesheet overhead and glassmorphism UI |
-| 🔍 **Deep-Dive Architecture Modal** | Detailed modal views revealing challenges, solutions, and architectural patterns per project |
-| 📜 **Verified Credentials Hub** | Direct verification links for accredited certifications (Metigator, Route Academy) |
-| 📱 **Zero-Layout-Shift Responsive Design** | Mobile-first geometry adapting seamlessly across all screen viewports |
-| 🚀 **Automated Static Export Pipeline** | Clean CI/CD deployment to GitHub Pages via automated build scripts |
+| ⚡ **Next.js 16 static export** | App Router with `output: "export"`, served as static files from GitHub Pages |
+| 🔷 **Typed content** | Projects, skills, courses and certificates live in one typed file (`src/lib/data.ts`) |
+| 🎞️ **Framer Motion** | Entrance animations and hover effects |
+| 🎨 **Tailwind CSS 4** | Utility-first styling with a dark, glass-style theme |
+| 🔍 **Project modals** | Architecture, challenges, solutions and demo logins for each project |
+| 📜 **Certificates** | Links to the Metigator and Route Academy certificates |
+| 📱 **Responsive** | Layouts that work from phone to desktop |
+| 🚀 **One-command deploy** | `npm run deploy` builds the site and pushes `out/` to the `gh-pages` branch |
 
 ---
 
@@ -122,16 +122,16 @@ Portfolio/
 │   │   ├── globals.css           # Global Tailwind directives & glass panels
 │   │   ├── layout.tsx            # HTML root metadata & font setup
 │   │   └── page.tsx              # Single-page application aggregator
-│   ├── components/               # High-performance UI components
-│   │   ├── About.tsx             # Bio, statistics & educational highlight
-│   │   ├── Contact.tsx           # React Hook Form contact interface
-│   │   ├── Experience.tsx        # Work history, education & verified certs
+│   ├── components/               # Page sections
+│   │   ├── About.tsx             # Bio, stats & Route Academy highlight
+│   │   ├── Contact.tsx           # Contact form & links
+│   │   ├── Experience.tsx        # Education, courses & certificates
 │   │   ├── Footer.tsx            # Social channels & copyright
 │   │   ├── Hero.tsx              # Interactive introduction & CV selector
 │   │   ├── Navbar.tsx            # Sticky navigation with active section tracker
 │   │   ├── Projects.tsx          # Filterable projects grid & architecture modal
 │   │   ├── Services.tsx          # Value proposition cards
-│   │   └── Skills.tsx            # Animated multi-category technical skills grid
+│   │   └── Skills.tsx            # Skills by category, with where each one was used
 │   └── lib/
 │       └── data.ts               # Centralized, strongly-typed portfolio data
 ├── next.config.ts                # Next.js static export & basePath config

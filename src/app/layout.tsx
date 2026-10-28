@@ -29,7 +29,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: `${PERSONAL_INFO.name} | Premium Developer Portfolio`,
+  title: `${PERSONAL_INFO.name} | Full-Stack .NET Developer`,
   description: PERSONAL_INFO.bio,
   keywords: [
     "Fady Kaiser", ".NET Developer", "ASP.NET Core Web API",

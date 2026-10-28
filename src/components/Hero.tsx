@@ -66,7 +66,7 @@ export default function Hero() {
             className="inline-flex self-center lg:self-start items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-primary/20 bg-primary/5 text-primary text-xs font-mono tracking-wider uppercase mb-6"
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
-            Available for full-time & contract roles
+            Open to junior roles & internships
           </motion.div>
 
           {/* Main Title Heading */}
@@ -79,7 +79,7 @@ export default function Hero() {
               Fady Kaiser
             </span>
             <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent text-glow text-3xl sm:text-4xl md:text-5xl lg:text-6xl block font-bold leading-normal pt-1">
-              Full-Stack Developer
+              Full-Stack .NET Developer
             </span>
           </motion.h1>
 
@@ -88,7 +88,7 @@ export default function Hero() {
             variants={itemVariants as any}
             className="text-gray-400 font-outfit text-base sm:text-lg md:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed mb-10"
           >
-            I build robust end-to-end architectures. Writing <span className="text-primary font-medium">highly scalable APIs</span> on the backend and crafting <span className="text-secondary font-medium">frictionless user experiences</span> on the frontend.
+            I build complete web apps: <span className="text-primary font-medium">ASP.NET Core Web APIs</span> with EF Core and SQL Server on the backend, and <span className="text-secondary font-medium">React / Next.js</span> with TypeScript on the frontend.
           </motion.p>
 
           {/* Action CTAs */}

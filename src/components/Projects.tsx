@@ -50,11 +50,11 @@ export default function Projects() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="font-outfit text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-            Premium <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Projects</span>
+            Featured <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Projects</span>
           </h2>
           <div className="w-12 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6" />
           <p className="text-gray-400 font-outfit text-lg max-w-2xl mx-auto leading-relaxed">
-            A selective showcase of production-grade backends, responsive Single Page Apps, and full-stack systems.
+            Full-stack and frontend projects, each with a live demo and its source code.
           </p>
         </div>
 

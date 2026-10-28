@@ -18,9 +18,9 @@ export interface Project {
   }[];
 }
 
-export interface Experience {
-  role: string;
-  company: string;
+export interface Course {
+  title: string;
+  provider: string;
   location: string;
   duration: string;
   description: string[];
@@ -38,7 +38,7 @@ export interface Certification {
   issuer: string;
   year: string;
   credentialId?: string;
-  image?: string;
+  link?: string;
 }
 
 export interface Service {
@@ -48,9 +48,14 @@ export interface Service {
   features: string[];
 }
 
+export interface Skill {
+  name: string;
+  note: string;
+}
+
 export const PERSONAL_INFO = {
   name: 'Fady Kaiser Gerges',
-  title: 'Full-Stack / .NET Developer',
+  title: 'Junior Full-Stack .NET Developer',
   email: 'fadykaiser2004@gmail.com',
   phone: '+20 120 157 5765',
   location: 'Cairo, Egypt',
@@ -62,54 +67,55 @@ export const PERSONAL_INFO = {
     fullStack: 'https://drive.google.com/file/d/1o7nuMuKR1vMOCwGmaLRHMif4tSeIrtCr/view?usp=sharing'
   },
   whatsapp: 'https://wa.me/201201575765',
-  bio: 'Full-Stack Software Engineer with a solid Computer Science foundation and hands-on experience architecting production-grade server-side systems and highly interactive responsive interfaces. Specialized in ASP.NET Core, EF Core, layered and Onion architectures, and modern React 19 / Next.js full-stack development.',
+  bio: 'Junior Full-Stack .NET Developer and Computer Science student at HTI (Class of 2027). I build complete web applications: ASP.NET Core Web APIs with EF Core and SQL Server on the backend, and React / Next.js with TypeScript on the frontend. My two full-stack projects are live with demo logins.',
   aboutCode: `var fady = new Developer {
   Name = "Fady Kaiser",
-  Role = "Full-Stack .NET Developer",
+  Role = "Junior Full-Stack .NET Developer",
   Backend = new[] { "ASP.NET Core 10", "EF Core 10", "RESTful APIs", "SQL Server", "Output Caching" },
-  Frontend = new[] { "React 19", "Next.js 16", "TypeScript", "Tailwind CSS 4", "Framer Motion" },
+  Frontend = new[] { "React 19", "Next.js 16", "TypeScript", "Tailwind CSS 4", "TanStack Query" },
   Architecture = new[] { "Layered (3-tier) Architecture", "Onion Architecture", "Repository & Unit of Work" },
   Testing = new[] { "xUnit", "Integration Tests (379)", "Playwright", "Vitest" },
-  Passions = new[] { "Enterprise Scalability", "Clean Code", "High-Impact Systems" },
-  OpenTo = "Full-Stack, Backend & Frontend opportunities"
+  Interests = new[] { "Clean Code", "Testing", "Knowing why a design works" },
+  OpenTo = "Junior Full-Stack / Backend roles & internships"
 };`
 };
 
-export const SKILLS = {
+export const SKILLS: Record<'backend' | 'frontend' | 'architecture' | 'tools', Skill[]> = {
   backend: [
-    { name: 'C#', level: 92 },
-    { name: 'ASP.NET Core Web API', level: 94 },
-    { name: 'Entity Framework Core', level: 90 },
-    { name: 'SQL Server', level: 88 },
-    { name: 'LINQ', level: 90 },
-    { name: 'ASP.NET Core MVC', level: 85 },
-    { name: 'SignalR', level: 82 },
-    { name: 'xUnit', level: 82 }
+    { name: 'C#', note: 'Power Fitness and LuxeStore APIs' },
+    { name: 'ASP.NET Core Web API', note: 'Power Fitness (96 endpoints) and LuxeStore' },
+    { name: 'Entity Framework Core', note: 'Migrations, specifications, RowVersion concurrency' },
+    { name: 'SQL Server', note: 'Database for both full-stack projects' },
+    { name: 'LINQ', note: 'Queries, paging and dashboard stats' },
+    { name: 'ASP.NET Core MVC', note: 'Route Academy course projects' },
+    { name: 'SignalR', note: 'Studied in a course, planned for my next project' },
+    { name: 'xUnit', note: '379 integration tests in Power Fitness' }
   ],
   frontend: [
-    { name: 'React 19 & Next.js 16', level: 90 },
-    { name: 'TypeScript', level: 86 },
-    { name: 'Tailwind CSS 4', level: 92 },
-    { name: 'JavaScript (ES6+)', level: 90 },
-    { name: 'Redux Toolkit / Context API', level: 85 },
-    { name: 'Framer Motion', level: 85 },
-    { name: 'HTML5 & CSS3', level: 95 }
+    { name: 'React 19 & Next.js 16', note: 'Power Fitness, LuxeStore, Admin Dashboard' },
+    { name: 'TypeScript', note: 'Power Fitness, Admin Dashboard, LuxeStore API client' },
+    { name: 'Tailwind CSS 4', note: 'Power Fitness, Admin Dashboard, this portfolio' },
+    { name: 'JavaScript (ES6+)', note: 'LuxeStore storefront, Cinema+' },
+    { name: 'TanStack Query', note: 'Server state in Power Fitness' },
+    { name: 'Redux Toolkit / Context API', note: 'Redux in Power Fitness, Context in LuxeStore' },
+    { name: 'React Hook Form + Zod', note: 'Power Fitness forms, Admin Dashboard' },
+    { name: 'HTML5 & CSS3', note: 'All projects; LuxeStore uses plain CSS' }
   ],
   architecture: [
-    { name: 'Layered / Onion Architecture', level: 92 },
-    { name: 'Repository & Unit of Work', level: 90 },
-    { name: 'Specification Pattern', level: 88 },
-    { name: 'RESTful API Design & RFC 9457', level: 92 },
-    { name: 'SOLID Principles & OOP', level: 92 },
-    { name: 'Automated Testing (xUnit / Integration)', level: 88 }
+    { name: 'Layered (3-tier) Architecture', note: 'Power Fitness: API / BLL / DAL' },
+    { name: 'Onion Architecture', note: 'LuxeStore' },
+    { name: 'Repository & Unit of Work', note: 'Both full-stack projects' },
+    { name: 'Specification Pattern', note: 'LuxeStore catalog paging and filtering' },
+    { name: 'REST API Design & RFC 9457', note: 'Problem Details error responses' },
+    { name: 'SOLID & OOP', note: 'Applied across both APIs' }
   ],
   tools: [
-    { name: 'Output Caching', level: 82 },
-    { name: 'Stripe (test mode)', level: 82 },
-    { name: 'JWT Auth & ASP.NET Identity', level: 90 },
-    { name: 'Git & GitHub', level: 88 },
-    { name: 'Postman & Swagger / OpenAPI', level: 92 },
-    { name: 'Playwright & Vitest', level: 82 }
+    { name: 'JWT & ASP.NET Core Identity', note: 'Rotating refresh tokens, role-based policies' },
+    { name: 'Output Caching', note: 'LuxeStore catalog, evicted by tag on admin changes' },
+    { name: 'Stripe (test mode)', note: 'LuxeStore PaymentIntents and signed webhook' },
+    { name: 'Playwright & Vitest', note: 'End-to-end and component tests' },
+    { name: 'Postman & Swagger / OpenAPI', note: 'Live API docs for both projects' },
+    { name: 'Git & GitHub', note: 'All projects' }
   ]
 };
 
@@ -144,15 +150,15 @@ export const PROJECTS: Project[] = [
     id: 'e-commerce-fullstack',
     title: 'LuxeStore — Full-Stack E-Commerce Platform',
     category: 'Full-Stack',
-    description: 'A full-stack store combining an ASP.NET Core 10 Web API and a React 19 storefront: SQL Server-backed baskets, tag-evicted output caching, Stripe test-mode checkout or Cash on Delivery, and an admin console.',
-    longDescription: 'LuxeStore is a full-stack e-commerce system: an ASP.NET Core 10 Web API (Onion Architecture with Domain, Persistence, Services and Presentation layers, EF Core 10, SQL Server) and a React 19 + Vite SPA with plain CSS and a persisted dark/light theme. Baskets are stored in SQL Server with server-side pricing and owner-only access, catalog responses use ASP.NET Core Output Caching evicted by tag on admin changes, checkout supports Stripe test-mode PaymentIntents or Cash on Delivery with stock checks (409 when insufficient), and ASP.NET Core Identity + JWT provide Admin/Customer roles with lockout and login rate limiting. Includes an admin console (products with image upload, brands/types, order status, sales and low-stock stats) and Vitest, Playwright and xUnit tests.',
+    description: 'A full-stack store combining an ASP.NET Core 10 Web API and a React 19 storefront: SQL Server-backed baskets, tag-evicted output caching, Cash on Delivery or a Stripe test-mode PaymentIntent, and an admin console.',
+    longDescription: 'LuxeStore is a full-stack e-commerce system: an ASP.NET Core 10 Web API (Onion Architecture with Domain, Persistence, Services and Presentation layers, EF Core 10, SQL Server) and a React 19 + Vite SPA with plain CSS and a persisted dark/light theme. Baskets are stored in SQL Server with server-side pricing and owner-only access, catalog responses use ASP.NET Core Output Caching evicted by tag on admin changes, and orders are placed with Cash on Delivery or a Stripe test-mode PaymentIntent created on the server, with stock checks (409 when insufficient). ASP.NET Core Identity + JWT provide Admin/Customer roles with lockout and login rate limiting. Includes an admin console (products with image upload, brands/types, order status, sales, a 7-day sales chart and low-stock alerts) and Vitest, Playwright and xUnit tests.',
     techStack: ['ASP.NET Core 10 Web API', 'C#', 'EF Core 10', 'SQL Server', 'Output Caching', 'Stripe (test mode)', 'JWT Bearer', 'React 19', 'Vite', 'CSS', 'Vitest', 'Playwright'],
     features: [
       'Onion Architecture separating domain entities from persistence, services and Web API controllers.',
       'SQL Server-backed baskets (Baskets + BasketItems) with server-side pricing and owner-only access, plus tag-evicted output caching for the catalog.',
-      'Checkout with Stripe test-mode PaymentIntents (server-computed amount, signature-verified webhook) or Cash on Delivery.',
+      'Checkout with Cash on Delivery, or a Stripe test-mode PaymentIntent created on the server (server-computed amount, signature-verified webhook). The card form is a demo: card details are not sent to Stripe yet.',
       'Role-based access control with ASP.NET Core Identity, JWT Bearer tokens, account lockout and login rate limiting.',
-      'Admin console with total sales, order count, top sellers, low-stock alerts, product/brand/type management and order status updates.',
+      'Admin console with total sales, order count, a 7-day sales chart, top sellers, low-stock alerts, product/brand/type management and order status updates.',
       'Catalog with category and brand filters, name/price sorting, name search and pagination.',
       'Vitest component tests, Playwright end-to-end scenarios and xUnit integration tests.'
     ],
@@ -166,61 +172,89 @@ export const PROJECTS: Project[] = [
     id: 'advanced-admin-dashboard',
     title: 'Admin Dashboard',
     category: 'Frontend',
-    description: 'An enterprise-grade commercial dashboard featuring secure client-side routes, interactive scheduling, and flawless visual performance without hydration flickering.',
-    longDescription: 'A premium, commercial-grade Administrative Dashboard application built with React, Next.js, and TypeScript. Strategically optimized for enterprise workflows, it addresses core architecture challenges like eliminating hydration-induced visual flickering and securing client-side routes. Features high-performance interactive calendars for resource planning, responsive side-navigation bars, and dense multi-series analytical charting tools configured for high-frequency data presentation.',
+    description: 'A frontend admin dashboard with Next.js 16 and TypeScript: KPI cards and charts, a FullCalendar scheduler, team, contacts and invoices pages, a validated form and a dark / light theme that does not flash on load.',
+    longDescription: 'A frontend practice project built with Next.js 16 (App Router), React 19, TypeScript and Tailwind CSS 4. There is no backend: the team, contacts and invoices lists come from the DummyJSON API, the charts use sample data, and the login is a browser-only demo with a route guard in the root layout. The focus was layout, charts, forms, the calendar and theming.',
     techStack: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS 4', 'Recharts', 'FullCalendar', 'React Hook Form', 'Zod', 'Lucide Icons'],
     features: [
-      'Advanced client-side route guarding preventing unauthorized view access and preserving session contexts.',
-      'Flawless visual performance architecture eliminating Next.js hydration layout shifts and theme flickering.',
-      'Highly dynamic, full-featured FullCalendar scheduling workflow with persistent CRUD operations.',
-      'Interactive multi-series charts and analytical tracking views powered by high-performance Recharts wrappers.',
-      'Custom stateful layout wrappers supporting collapsible sidebar states and theme-aware responsiveness.'
+      'Overview with KPI cards and a revenue chart that switches between daily, weekly and monthly data.',
+      'FullCalendar scheduler (month, week, day): click a date to add an event, drag to move it, click to delete; events are saved in localStorage.',
+      'Team, contacts and invoices pages loaded from DummyJSON, with search and filters.',
+      'Profile form validated with React Hook Form and a Zod schema.',
+      'Dark / light theme applied by an inline script before the first paint, so the wrong theme never flashes.',
+      'Browser-only demo login with a route guard, plus a one-click demo account.'
     ],
-    architecture: 'Modular Frontend Component Pattern wrapping highly reactive Next.js layout trees. Features isolated context layers for application states, and fully customized theme variables injecting custom scales directly into Tailwind engine.',
-    challenges: 'Preventing client-side layout layout flickering during Next.js hydration phase and isolating complex calendar rendering processes from the core application pipeline.',
-    solutions: 'Implemented an optimized client-ready lifecycle synchronization mechanism using React hooks, ensuring dense visual dashboards render completely stable from the first paint.',
+    architecture: 'Next.js 16 App Router with one folder per page, a shared Sidebar / Topbar shell in the root layout, and small reusable components (StatCard, RecentActivity). Pages fetch from DummyJSON on the client; the theme and calendar events live in localStorage.',
+    challenges: 'Avoiding a flash of the wrong theme on first load, and keeping calendar events after a page refresh.',
+    solutions: 'An inline script in <head> reads the saved theme and sets the dark class before React hydrates; calendar events are written to localStorage on every change and read back on load.',
     githubUrl: 'https://github.com/Fady519/Dashboard',
     liveUrl: 'https://dashboard-flax-two-20.vercel.app/login',
     demoCredentials: [
-      { role: 'Administrator', username: 'admin@admin.com', password: 'admin' }
+      { role: 'Demo account', username: 'admin@admin.com', password: 'admin' }
     ]
   },
   {
     id: 'cinema-streaming',
-    title: 'Cinema+ — Streaming Discovery & Playback',
+    title: 'Cinema+ — Movie & TV Discovery',
     category: 'Frontend',
-    description: 'High-fidelity cinematic streaming search and discovery portal consuming 8 TMDB REST API endpoints with embedded HD YouTube trailer streaming.',
-    longDescription: 'Cinema+ is an elegant, mobile-responsive video discovery platform that aggregates rich cinematic data from the official TMDB REST API. It showcases randomized trending spotlight heroes, embedded HD trailer playback powered by React YouTube, customized multi-genre explorers, real-time search, and a persistent client-side watchlist.',
+    description: 'A movie and TV discovery app built with React 19 and the TMDB API: trending titles, search, genre browsing, YouTube trailers and a watchlist saved in the browser.',
+    longDescription: 'Cinema+ is a React 19 + Vite single-page app that reads movie and TV data from the TMDB REST API with Axios. It has a trending hero, rows for top rated and upcoming titles, genre browsing, multi-search, a details view with the YouTube trailer, and a "My List" watchlist kept in localStorage.',
     techStack: ['React 19', 'Vite', 'React Router 7', 'Tailwind CSS', 'Framer Motion', 'Axios', 'TMDB REST API', 'React YouTube'],
     features: [
-      'Live integration with TMDB REST API across 8 distinct endpoints for real-time video and catalog discovery.',
-      'Embedded HD trailer streaming player utilizing React YouTube and the YouTube IFrame API.',
-      'Persistent "My Watchlist" feature managed via LocalStorage to let users bookmark titles across sessions.',
-      'Instant real-time search engine querying database catalogs with synchronized URL query parameters.',
-      'Mobile-first responsive fluid grids with custom shimmer skeleton loading screens preventing layout shift (CLS).',
-      'Protected client-side routing gates restricting access to trailers and watchlist views without login.'
+      'TMDB REST API through Axios: trending, top rated, upcoming, discover, multi-search, details and videos endpoints.',
+      'Trailer playback with react-youtube on the details view.',
+      '"My List" watchlist saved in localStorage.',
+      'Search and browse grids with shimmer skeletons while results load.',
+      'Responsive layouts and Framer Motion animations.',
+      'Sign-in page and a route guard that keep the browse pages behind a browser-only login.'
     ],
-    architecture: 'Single Page Application utilizing React Router 7, consuming TMDB REST API via Axios instances, with LocalStorage state persistence and Framer Motion micro-animations.',
-    challenges: 'Handling multiple concurrent TMDB API calls on the homepage without rendering erratic layouts or facing API rate limit blocking.',
-    solutions: 'Engineered specialized asynchronous API handling routines and coupled with shimmer skeleton states to guarantee all grids load synchronously with pleasant visual transitions.',
+    architecture: 'Single-page app with React Router 7, Axios calls to TMDB, a ProtectedRoute wrapper for the browse pages and localStorage for the watchlist.',
+    challenges: 'The home page makes several TMDB requests, and the layout jumped while they loaded.',
+    solutions: 'Shimmer skeletons with the same size as the real cards are shown while each row loads, so the page does not jump when the data arrives.',
     githubUrl: 'https://github.com/Fady519/Cinema-Fady',
     liveUrl: 'https://fady519.github.io/Cinema-Fady/'
   }
 ];
 
-export const EXPERIENCES: Experience[] = [
+export const COURSES: Course[] = [
   {
-    role: 'Full-Stack .NET Developer Trainee',
-    company: 'Route Academy',
-    location: 'Cairo, Egypt (On-site)',
-    duration: 'May 2025 – Oct 2025',
+    title: 'Mastering ASP.NET Core: Concepts to Production-Ready APIs',
+    provider: 'Metigator (Issam Abdelnabi)',
+    location: 'Online',
+    duration: '06/2026 – 08/2026',
     description: [
-      'Completed an intensive, hands-on 150+ hour software development training program focused on building production-ready web applications, modern architectural patterns, and scalable APIs.',
-      'Engineered robust RESTful Web APIs using C#, ASP.NET Core, and Entity Framework Core following layered and Onion Architecture principles.',
-      'Implemented relational database models, complex LINQ queries, and migrations using SQL Server with Repository and Unit of Work patterns.',
-      'Configured secure authentication and authorization systems utilizing ASP.NET Identity, JWT Bearer tokens, and Role-Based Access Control (RBAC).',
-      'Developed dynamic, responsive client-side user interfaces utilizing React, Next.js, TypeScript, and Tailwind CSS integrated with backend services.',
-      'Applied SOLID design principles, Object-Oriented Programming (OOP), and clean code standards in agile sprint environments with Git/GitHub.'
+      'Online ASP.NET Core course focused on building and structuring Web APIs.'
+    ]
+  },
+  {
+    title: '.NET Core Backend Development Diploma',
+    provider: 'Route Academy',
+    location: 'Cairo, Egypt',
+    duration: '05/2025 – 01/2026',
+    description: [
+      'C#, OOP and SOLID, then ASP.NET Core MVC and Web API.',
+      'Entity Framework Core with SQL Server: data modeling, LINQ queries and migrations.',
+      'Layered and Onion Architecture with the Repository and Unit of Work patterns.',
+      'Authentication and authorization with ASP.NET Core Identity, JWT and roles.'
+    ]
+  },
+  {
+    title: 'Front-End Development Diploma',
+    provider: 'Route Academy',
+    location: 'Cairo, Egypt',
+    duration: '03/2025 – 08/2025',
+    description: [
+      'HTML5, CSS3, Bootstrap and responsive layouts.',
+      'JavaScript (ES6+), the DOM and calling REST APIs.',
+      'React fundamentals: components, hooks, routing and state.'
+    ]
+  },
+  {
+    title: 'Programming Fundamentals',
+    provider: 'Route Academy',
+    location: 'Cairo, Egypt',
+    duration: '10/2024 – 03/2025',
+    description: [
+      'Programming basics and problem solving.'
     ]
   }
 ];
@@ -230,7 +264,7 @@ export const EDUCATION: Education[] = [
     degree: 'B.Sc. in Computer Science',
     institution: 'Higher Technological Institute (HTI)',
     location: '10th of Ramadan, Egypt',
-    duration: '2023 – Expected May 2027'
+    duration: '2023 – Expected Jun 2027'
   }
 ];
 
@@ -240,67 +274,69 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: 'Metigator (Issam Abdelnabi)',
     year: '2026',
     credentialId: 'cert_b645q3rt',
-    image: '/certificates/metigator_aspnetcore.png'
+    link: 'https://drive.google.com/file/d/1cqCpkzDO_2e7SiMft16lEgUFPm4OhbbC/view'
   },
   {
     name: '.NET Core Backend Development Diploma',
     issuer: 'Route Academy',
-    year: '2025'
+    year: '2026',
+    link: 'https://drive.google.com/file/d/1JE8KTPW4HUaUmrLeRGeIp8_TvR3Nm6pL/view'
   },
   {
-    name: 'Front-End Development Track',
+    name: 'Front-End Development Diploma',
     issuer: 'Route Academy',
-    year: '2025'
+    year: '2025',
+    link: 'https://drive.google.com/file/d/1r4cn6TfUqXxGSrCflXzY7Y9S_YSVQjPj/view'
   },
   {
-    name: 'Programming Fundamentals Certificate',
+    name: 'Programming Fundamentals',
     issuer: 'Route Academy',
-    year: '2024'
+    year: '2025'
   }
 ];
 
 export const SERVICES: Service[] = [
   {
-    title: 'Enterprise Backend Development',
-    description: 'Designing high-performance APIs and robust databases built to scale. I craft secure architectures using the latest enterprise frameworks.',
+    title: 'Backend Development',
+    description: 'REST APIs with ASP.NET Core, EF Core and SQL Server, with authentication, validation and clear error responses.',
     iconName: 'Server',
     features: [
-      'ASP.NET Core Web API & Layered / Onion Architecture',
-      'Onion Architecture & Domain-Driven Design',
-      'Database modeling & SQL Server optimization',
-      'ASP.NET Core Output Caching',
-      'JWT Auth & Identity authorization (RBAC)'
+      'ASP.NET Core Web API (.NET 10)',
+      'Layered and Onion Architecture',
+      'EF Core & SQL Server data modeling',
+      'JWT, refresh tokens & ASP.NET Core Identity',
+      'Output Caching & rate limiting'
     ]
   },
   {
-    title: 'Full-Stack & SPA Frontends',
-    description: 'Building gorgeous, pixel-perfect interfaces that deliver frictionless user experiences on mobile and desktop screens.',
+    title: 'Frontend Development',
+    description: 'Responsive React and Next.js interfaces in TypeScript, connected to real APIs, in English and Arabic.',
     iconName: 'Layout',
     features: [
-      'Next.js 16 & React 19 App development',
-      'TypeScript integration & strict type safety',
-      'State stream synchronization (Redux / Context)',
-      'Highly stylized layouts using Tailwind CSS 4',
-      'Framer Motion smooth scroll & hover animations'
+      'Next.js 16 & React 19',
+      'TypeScript with generated API types',
+      'TanStack Query, Redux Toolkit & Context API',
+      'Tailwind CSS 4 & shadcn/ui',
+      'English / Arabic (RTL) layouts'
     ]
   },
   {
-    title: 'Architecture & Automated Testing',
-    description: 'Enforcing rock-solid reliability with clean design patterns and comprehensive integration test coverage.',
+    title: 'Testing & Code Quality',
+    description: 'Tests that run against a real database, and code organized so each layer has one job.',
     iconName: 'Zap',
     features: [
-      'Applying Repository & Specification patterns',
-      'xUnit & Automated Integration Testing (370+ tests)',
-      'Enforcing strict SOLID & Clean Code principles',
-      'Bundle size optimization & code splitting',
-      'RFC 9457 standardized error handling'
+      'xUnit integration tests (379 in Power Fitness)',
+      'Playwright end-to-end & Vitest tests',
+      'Repository, Unit of Work & Specification patterns',
+      'SOLID & clean code',
+      'RFC 9457 Problem Details errors'
     ]
   }
 ];
 
 export const STATS = [
-  { label: 'Completed Training Hours', value: '150+' },
-  { label: 'Production Projects Completed', value: '4+' },
-  { label: 'Integration Tests Written', value: '370+' },
-  { label: 'Technologies Mastered', value: '18+' }
+  { label: 'Live Projects', value: '4' },
+  { label: 'API Endpoints in Power Fitness', value: '96' },
+  { label: 'Integration Tests in Power Fitness', value: '379' },
+  { label: 'Courses Completed', value: '4' }
 ];

@@ -37,7 +37,7 @@ export default function About() {
           </h2>
           <div className="w-12 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6" />
           <p className="text-gray-400 font-outfit text-lg max-w-2xl mx-auto leading-relaxed">
-            Crafting elegant software architectures with scalable patterns and professional craftsmanship.
+            A Computer Science student who builds and ships full-stack web apps.
           </p>
         </div>
 
@@ -60,7 +60,7 @@ export default function About() {
             </p>
 
             <p className="text-gray-400 font-outfit text-base leading-relaxed mb-8">
-              Having studied computer science in-depth and committed to 150+ hours of professional backend engineering, I am ready to handle complex backend environments and craft premium client-side user experiences. I specialize in applying clean system-separation principles (Onion architecture, DAL/BLL splits) and robust interface frameworks.
+              I learned the stack through Route Academy&apos;s back-end and front-end diplomas and a Metigator ASP.NET Core course, then used it to build two full-stack projects that are live with demo logins. I care about clean, readable code and about understanding why each design decision is made, not just making it work.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 p-4 rounded-2xl glass-panel border border-white/5 bg-white/2">
@@ -68,9 +68,9 @@ export default function About() {
                 <Award className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <h4 className="font-outfit font-bold text-white mb-1">Route Academy Graduate</h4>
+                <h4 className="font-outfit font-bold text-white mb-1">Route Academy Diplomas</h4>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  Earned specialized diplomas in both .NET Core Backend Development and Frontend Track, mastering professional workflows, REST APIs, and responsive architectures.
+                  Completed the .NET Core Back-end diploma and the Front-end diploma: ASP.NET Core, EF Core, SQL Server, HTML, CSS, JavaScript and React.
                 </p>
               </div>
             </div>
